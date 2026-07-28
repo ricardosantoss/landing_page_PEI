@@ -15,19 +15,25 @@
       content="Planos Educacionais Individualizados, atividades adaptadas e acompanhamento pedagógico em uma plataforma pensada para escolas e redes públicas."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://SEU-DOMINIO.vercel.app/" />
-    <meta property="og:image" content="assets/pei-inteligente-hero.webp" />
+    <meta property="og:url" content="https://pei-inteligente.vercel.app/" />
+    <meta property="og:image" content="assets/prototipo-visao-geral.webp" />
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="PEI Inteligente" />
     <meta
       name="twitter:description"
-      content="Tecnologia para transformar inclusão educacional em rotina acompanhável, documentada e colaborativa."
+      content="Planos Educacionais Individualizados com apoio de IA e validação humana. Projeto de pesquisa aplicada do IFG, com IFMT e IFES."
     />
-    <meta name="twitter:image" content="assets/pei-inteligente-hero.webp" />
+    <meta name="twitter:image" content="assets/prototipo-visao-geral.webp" />
     <link rel="icon" href="assets/pei-inteligente-logo.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="assets/pei-inteligente-hero.webp" fetchpriority="high" />
-    <link rel="stylesheet" href="styles2.css?v=20260715-realizacao-ifg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,640&display=swap"
+    />
+    <link rel="preload" as="image" href="assets/prototipo-visao-geral.webp" fetchpriority="high" />
+    <link rel="stylesheet" href="styles2.css?v=20260728-prototipo-real" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -35,7 +41,7 @@
         "name": "PEI Inteligente",
         "description": "Plataforma para criação de Planos Educacionais Individualizados, atividades adaptadas e acompanhamento pedagógico.",
         "founder": "Instituto Federal de Goiás",
-        "url": "https://SEU-DOMINIO.vercel.app/"
+        "url": "https://pei-inteligente.vercel.app/"
       }
     </script>
   </head>
@@ -80,57 +86,70 @@
 
     <main id="conteudo">
       <section class="hero" id="inicio" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true">
-          <img src="assets/pei-inteligente-hero.webp" alt="" width="1672" height="941" fetchpriority="high" />
-        </div>
-        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content hero-split">
+          <div class="hero-text">
+            <p class="eyebrow">Projeto de pesquisa aplicada do IFG</p>
+            <h1 id="hero-title">PEI Inteligente</h1>
+            <p class="hero-subtitle">
+              O Plano Educacional Individualizado deixa o papel e vira rotina acompanhável.
+            </p>
+            <p class="hero-copy">
+              Uma plataforma para estruturar PEIs, adaptar atividades e registrar evidências com apoio de IA — e com a palavra final sempre da equipe escolar. Já existe um protótipo público, e você pode testá-lo agora.
+            </p>
 
-        <div class="hero-content">
-          <p class="eyebrow">Tecnologia para inclusão educacional</p>
-          <h1 id="hero-title">PEI Inteligente</h1>
-          <p class="hero-subtitle">
-            Do plano individualizado ao acompanhamento pedagógico, em uma rotina mais clara para professores, AEE e gestão.
-          </p>
-          <p class="hero-copy">
-            Uma plataforma para estruturar PEIs, adaptar atividades, registrar evidências e apoiar decisões da equipe escolar sem substituir a validação humana.
-          </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contato">
+                Conversar sobre parceria
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <a
+                class="button button-secondary"
+                href="https://prototipo-pei-inteligente.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Testar o protótipo
+              </a>
+            </div>
 
-          <div class="hero-actions">
-            <a class="button button-primary" href="#contato">
-              Conversar sobre parceria
-              <span aria-hidden="true">&rarr;</span>
-            </a>
-            <a class="button button-secondary" href="#plataforma">Conhecer a plataforma</a>
+            <dl class="hero-proof" aria-label="Fatos do projeto">
+              <div>
+                <dt>Protótipo</dt>
+                <dd>Demonstração pública no ar</dd>
+              </div>
+              <div>
+                <dt>3 institutos</dt>
+                <dd>IFG, IFMT e IFES</dd>
+              </div>
+              <div>
+                <dt>FAPEG</dt>
+                <dd>Proposta à Chamada nº 13/2026</dd>
+              </div>
+            </dl>
           </div>
 
           <a
-            class="prototype-callout"
+            class="hero-shot"
             href="https://prototipo-pei-inteligente.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Testar o protótipo do PEI Inteligente"
+            aria-label="Abrir o protótipo público do PEI Inteligente"
           >
-            <span>
-              <small>Demonstração pública</small>
-              <strong>Teste nosso protótipo</strong>
+            <span class="browser-frame">
+              <span class="browser-bar" aria-hidden="true">
+                <span class="browser-dots"><i></i><i></i><i></i></span>
+                <span class="browser-url">prototipo-pei-inteligente.vercel.app</span>
+              </span>
+              <img
+                src="assets/prototipo-visao-geral.webp"
+                alt="Tela do protótipo do PEI Inteligente: painel do administrador com visão geral da inclusão, alunos cadastrados, professores vinculados e registros pedagógicos"
+                width="777"
+                height="457"
+                fetchpriority="high"
+              />
             </span>
-            <span class="prototype-callout-action" aria-hidden="true">Abrir demo &rarr;</span>
+            <span class="hero-shot-caption">Tela real do protótipo — módulo Administrador</span>
           </a>
-
-          <dl class="hero-proof" aria-label="Resumo da proposta">
-            <div>
-              <dt>PEIs</dt>
-              <dd>Planos mais consistentes</dd>
-            </div>
-            <div>
-              <dt>AEE</dt>
-              <dd>Registros integrados</dd>
-            </div>
-            <div>
-              <dt>Rede</dt>
-              <dd>Visão para gestão pública</dd>
-            </div>
-          </dl>
         </div>
       </section>
 
@@ -138,11 +157,11 @@
         <div class="section-inner two-column">
           <div>
             <p class="section-kicker">O desafio</p>
-            <h2 id="problema-title">Inclusão precisa de método, tempo e continuidade.</h2>
+            <h2 id="problema-title">O PEI virou exigência legal. A rotina para produzi-lo continua manual.</h2>
           </div>
           <div class="lead-block">
             <p>
-              Muitas escolas já sabem o que precisa ser feito, mas enfrentam processos manuais, registros espalhados e pouca visibilidade sobre a evolução do estudante. O resultado é uma rotina pesada para quem ensina e pouco rastreável para quem acompanha.
+              Com o Decreto nº 12.773/2025 e a Portaria MEC nº 421/2026, a elaboração e o acompanhamento dos Planos Educacionais Individualizados ganharam prazos, responsáveis e critérios definidos. Na ponta, porém, o trabalho segue disperso: formulários refeitos do zero a cada semestre, registros espalhados entre planilhas, e-mails e cadernos, e pouca visibilidade sobre a evolução real do estudante.
             </p>
             <div class="pain-grid" aria-label="Desafios enfrentados pelas equipes">
               <article class="pain-card">
@@ -177,34 +196,46 @@
 
           <div class="feature-grid">
             <article class="feature-card">
-              <span class="feature-mark">PEI</span>
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              </span>
               <h3>Plano orientado</h3>
-              <p>Objetivos, barreiras, recursos, estratégias e acompanhamento em uma estrutura clara.</p>
+              <p>Objetivos específicos, metodologia, avaliação e resultados esperados na mesma estrutura que o docente já reconhece do formulário oficial.</p>
             </article>
             <article class="feature-card">
-              <span class="feature-mark mark-gold">AEE</span>
+              <span class="feature-icon icon-gold" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg>
+              </span>
               <h3>Atividades adaptadas</h3>
-              <p>Adaptação de propostas pedagógicas para diferentes perfis, ritmos e necessidades.</p>
+              <p>Propostas ajustadas ao perfil de cada estudante, com justificativa pedagógica registrada.</p>
             </article>
             <article class="feature-card">
-              <span class="feature-mark mark-coral">IA</span>
-              <h3>Sugestões responsáveis</h3>
-              <p>Recomendações contextualizadas para apoiar professores sem automatizar decisões finais.</p>
+              <span class="feature-icon icon-coral" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.3L18 9l-4.3 1.7L12 15l-1.7-4.3L6 9l4.3-1.7L12 3z"/><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z"/></svg>
+              </span>
+              <h3>Sugestões com IA</h3>
+              <p>O modelo gera um rascunho a partir do contexto do estudante. Quem revisa, ajusta e aprova é o professor.</p>
             </article>
             <article class="feature-card">
-              <span class="feature-mark mark-blue">HIS</span>
+              <span class="feature-icon icon-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </span>
               <h3>Histórico pedagógico</h3>
-              <p>Registros de evolução, ajustes, evidências e observações mantidos em uma linha contínua.</p>
+              <p>Evolução, ajustes e evidências em uma linha contínua entre semestres e ciclos.</p>
             </article>
             <article class="feature-card">
-              <span class="feature-mark">REL</span>
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M21 20H3"/></svg>
+              </span>
               <h3>Relatórios para reuniões</h3>
-              <p>Sínteses para conselhos, devolutivas, planejamento pedagógico e acompanhamento de rede.</p>
+              <p>Sínteses prontas para conselhos de classe, devolutivas às famílias e planejamento com o AEE.</p>
             </article>
             <article class="feature-card">
-              <span class="feature-mark mark-gold">RED</span>
+              <span class="feature-icon icon-gold" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+              </span>
               <h3>Visão institucional</h3>
-              <p>Leitura de demandas, status dos planos e necessidades de apoio para gestores públicos.</p>
+              <p>Status dos planos e demandas de apoio agregados por escola e por rede, para orientar formação e política pública.</p>
             </article>
           </div>
         </div>
@@ -214,19 +245,35 @@
         <div class="section-inner platform-layout">
           <div>
             <p class="section-kicker">Plataforma</p>
-            <h2 id="plataforma-title">Tudo que a equipe precisa ver, decidir e registrar.</h2>
+            <h2 id="plataforma-title">O formulário que o docente já conhece — agora com apoio inteligente.</h2>
             <p>
-              A experiência foi pensada para o cotidiano escolar: rápida para professores, organizada para AEE e legível para coordenação e gestão.
+              A tela ao lado é do protótipo em funcionamento. O professor informa o componente curricular e os conteúdos programáticos; a IA propõe objetivos específicos, metodologia, avaliação e resultados esperados. Nada é salvo sem revisão.
             </p>
 
             <ul class="check-list">
-              <li>Perfil do estudante com barreiras, potencialidades e contexto.</li>
-              <li>Plano com objetivos, estratégias, recursos e avaliação.</li>
-              <li>Atividades adaptadas com justificativa pedagógica.</li>
-              <li>Acompanhamento com evidências e histórico de alterações.</li>
+              <li>Perfil do estudante com necessidades, habilidades, dificuldades e adaptações.</li>
+              <li>Campos numerados no mesmo padrão do documento institucional (07 a 11).</li>
+              <li>Geração assistida por modelo de linguagem, com edição livre antes de salvar.</li>
+              <li>Exportação em texto para anexar a processos e reuniões.</li>
             </ul>
           </div>
 
+          <figure class="platform-shot">
+            <span class="browser-frame">
+              <span class="browser-bar" aria-hidden="true">
+                <span class="browser-dots"><i></i><i></i><i></i></span>
+                <span class="browser-url">prototipo-pei-inteligente.vercel.app</span>
+              </span>
+              <img
+                src="assets/prototipo-pei-form.webp"
+                alt="Tela do protótipo: formulário do Plano Educacional Individualizado com campos de conteúdos programáticos, objetivos específicos, metodologia, avaliação e resultados esperados, e botões Gerar com IA, Salvar PEI e Exportar texto"
+                width="583"
+                height="560"
+                loading="lazy"
+              />
+            </span>
+            <figcaption>Módulo Professor — criação do PEI com geração assistida e validação humana.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -234,7 +281,7 @@
         <div class="section-inner">
           <div class="section-heading compact">
             <p class="section-kicker">Como funciona</p>
-            <h2 id="fluxo-title">Um fluxo simples, auditável e colaborativo.</h2>
+            <h2 id="fluxo-title">Quatro etapas — e a validação humana em todas elas.</h2>
           </div>
 
           <ol class="flow-list">
@@ -274,7 +321,7 @@
         <div class="section-inner">
           <div class="section-heading wide">
             <p class="section-kicker">Impacto esperado</p>
-            <h2 id="impacto-title">Mais qualidade pedagógica com menos perda de informação.</h2>
+            <h2 id="impacto-title">O que muda na prática, para cada perfil da escola.</h2>
           </div>
 
           <div class="impact-grid">
@@ -298,28 +345,36 @@
         <div class="section-inner governance-layout">
           <div>
             <p class="section-kicker">Responsabilidade</p>
-            <h2 id="governanca-title">Tecnologia como apoio, nunca como substituição da equipe escolar.</h2>
+            <h2 id="governanca-title">A decisão pedagógica continua com quem conhece o estudante.</h2>
           </div>
           <div class="governance-grid">
             <article>
-              <span></span>
+              <span class="governance-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+              </span>
               <h3>Validação humana</h3>
-              <p>As sugestões precisam ser revisadas por profissionais que conhecem o estudante e o contexto.</p>
+              <p>Nenhuma sugestão vira plano sem revisão de quem acompanha o estudante em sala.</p>
             </article>
             <article>
-              <span></span>
+              <span class="governance-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg>
+              </span>
               <h3>Rastreabilidade</h3>
-              <p>Planos, adaptações e ajustes podem manter histórico para que a equipe entenda o que mudou.</p>
+              <p>Planos e adaptações mantêm histórico de alterações, para que a equipe entenda o que mudou e por quê.</p>
             </article>
             <article>
-              <span></span>
+              <span class="governance-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9l-10-5L2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg>
+              </span>
               <h3>Formação continuada</h3>
-              <p>A implantação pode vir acompanhada de orientação para uso pedagógico e institucional.</p>
+              <p>A implantação vem acompanhada de orientação pedagógica para o uso responsável da ferramenta.</p>
             </article>
             <article>
-              <span></span>
+              <span class="governance-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l4-3v16M13 21V5l6 3v13"/></svg>
+              </span>
               <h3>Escala pública</h3>
-              <p>O projeto nasce preparado para diálogo com reitorias, SEDUCs e redes de ensino.</p>
+              <p>Pensado desde o início para dialogar com reitorias, SEDUCs e redes de ensino.</p>
             </article>
           </div>
         </div>
@@ -482,8 +537,33 @@
     </main>
 
     <footer class="site-footer">
-      <p>PEI Inteligente - tecnologia a serviço da inclusão educacional.</p>
-      <a href="#inicio">Voltar ao topo</a>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/pei-inteligente-logo.svg" alt="" width="36" height="36" />
+          <div>
+            <strong>PEI Inteligente</strong>
+            <p>Projeto de pesquisa aplicada em educação especial inclusiva.</p>
+          </div>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <h4>Instituições</h4>
+            <p>Realização: Instituto Federal de Goiás</p>
+            <p>Apoio: IFMT — Campus Barra do Garças</p>
+            <p>Apoio: IFES — Campus Laranja da Terra</p>
+          </div>
+          <div>
+            <h4>Projeto</h4>
+            <p><a href="https://prototipo-pei-inteligente.vercel.app/" target="_blank" rel="noopener noreferrer">Protótipo público</a></p>
+            <p>Proposta submetida à FAPEG — Chamada Pública nº 13/2026</p>
+            <p>Referências legais: Decreto nº 12.773/2025 · Portaria MEC nº 421/2026</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; 2026 PEI Inteligente · Instituto Federal de Goiás</p>
+        <a href="#inicio">Voltar ao topo</a>
+      </div>
     </footer>
 
     <script>

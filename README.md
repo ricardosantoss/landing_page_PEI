@@ -14,7 +14,7 @@ O site não depende de instalação, build ou banco de dados. Ele usa apenas HTM
 
 ## Ajustes recomendados antes do deploy final
 
-- Troque `SEU-DOMINIO.vercel.app` pelo domínio real em `index.html`, `robots.txt` e `sitemap.xml`.
+- Confirme o domínio real do deploy em `index.html` (og:url e JSON-LD), `robots.txt` e `sitemap.xml` — atualmente configurado como `pei-inteligente.vercel.app`.
 - Confirme se o link de WhatsApp do botão final deve continuar sendo o atual.
 - Se usar domínio próprio, atualize o sitemap após configurar o domínio no Vercel.
 
