@@ -974,7 +974,7 @@ h2 {
 }
 
 .person-avatar img.photo-daniel {
-  transform: scale(1.8);
+  transform: scale(1.5);
   transform-origin: center;
   object-position: center 30%;
 }
