@@ -972,6 +972,10 @@ h2 {
 .person-avatar img.photo-wide {
   object-position: 47% 27%;
 }
+.person-avatar img.photo-daniel {
+  transform: scale(1.3);
+  object-position: center 30%;
+}
 
 .role-label {
   display: inline-flex;
