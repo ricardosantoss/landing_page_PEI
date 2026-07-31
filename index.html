@@ -1,1380 +1,678 @@
-:root {
-  --paper: #f6faf8;
-  --paper-strong: #ffffff;
-  --paper-soft: #edf5f1;
-  --ink: #10201d;
-  --ink-soft: #243835;
-  --muted: #5a6965;
-  --line: #d8e4de;
-  --brand: #05766f;
-  --brand-dark: #063f3d;
-  --sage: #6fa46f;
-  --gold: #e5b743;
-  --coral: #d96555;
-  --blue: #3f6f96;
-  --mint: #dff3e6;
-  --shadow: 0 22px 70px rgba(10, 35, 32, 0.13);
-  --shadow-soft: 0 14px 38px rgba(10, 35, 32, 0.08);
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.5;
-  text-rendering: optimizeLegibility;
-}
-
-body::selection {
-  background: var(--mint);
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-p {
-  overflow-wrap: anywhere;
-}
-
-h1,
-h2,
-h3 {
-  margin: 0;
-  color: var(--ink);
-}
-
-p {
-  margin: 0;
-}
-
-:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 3px;
-}
-
-.skip-link {
-  position: absolute;
-  top: -64px;
-  left: 18px;
-  z-index: 100;
-  padding: 12px 18px;
-  border-radius: 8px;
-  background: var(--ink);
-  color: #fff;
-  font-weight: 800;
-  transition: top 180ms ease;
-}
-
-.skip-link:focus {
-  top: 18px;
-}
-
-.site-header {
-  position: fixed;
-  z-index: 30;
-  top: 16px;
-  left: 50%;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 22px;
-  width: min(1140px, calc(100% - 32px));
-  min-height: 66px;
-  padding: 10px 12px 10px 14px;
-  transform: translateX(-50%);
-  border: 1px solid rgba(255, 255, 255, 0.52);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 18px 48px rgba(16, 45, 42, 0.14);
-  backdrop-filter: blur(18px);
-}
-
-.site-header.is-scrolled {
-  box-shadow: 0 14px 42px rgba(16, 45, 42, 0.18);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-  color: var(--brand-dark);
-  font-size: 1rem;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.brand-logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  box-shadow: 0 8px 18px rgba(5, 118, 111, 0.17);
-}
-
-.desktop-nav {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-  color: #2f4540;
-  font-size: 0.94rem;
-  font-weight: 800;
-}
-
-.desktop-nav a,
-.header-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0 16px;
-  border-radius: 999px;
-  transition:
-    background-color 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
-}
-
-.desktop-nav a:hover {
-  background: rgba(5, 118, 111, 0.09);
-  color: var(--brand-dark);
-}
-
-.header-action {
-  background: var(--ink);
-  color: #fff;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.header-action:hover,
-.button:hover {
-  transform: translateY(-1px);
-}
-
-.menu-toggle {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background: rgba(5, 118, 111, 0.08);
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 19px;
-  height: 2px;
-  margin: 3px 0;
-  border-radius: 2px;
-  background: var(--brand-dark);
-}
-
-.mobile-nav[hidden] {
-  display: none;
-}
-
-.mobile-nav {
-  position: fixed;
-  z-index: 29;
-  top: 88px;
-  left: 50%;
-  display: grid;
-  gap: 4px;
-  width: min(100% - 24px, 520px);
-  padding: 12px;
-  transform: translateX(-50%);
-  border: 1px solid rgba(255, 255, 255, 0.68);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.97);
-  box-shadow: 0 18px 50px rgba(16, 45, 42, 0.18);
-  backdrop-filter: blur(18px);
-}
-
-.mobile-nav a {
-  padding: 14px 16px;
-  border-radius: 12px;
-  color: #2f4540;
-  font-weight: 800;
-}
-
-.mobile-nav a:hover {
-  background: rgba(5, 118, 111, 0.09);
-}
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 148px 0 84px;
-  background:
-    radial-gradient(1100px 520px at 84% -10%, rgba(5, 118, 111, 0.1), transparent 68%),
-    linear-gradient(180deg, var(--paper-soft), var(--paper) 62%);
-}
-
-.hero-content {
-  position: relative;
-  width: min(1140px, calc(100% - 40px));
-  margin: 0 auto;
-}
-
-.hero-split {
-  display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
-  gap: 56px;
-  align-items: center;
-}
-
-h1,
-h2 {
-  font-family: var(--font-display);
-  font-weight: 600;
-}
-
-.eyebrow,
-.section-kicker {
-  margin: 0 0 14px;
-  color: var(--brand);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.hero h1 {
-  font-size: 3.9rem;
-  line-height: 1.02;
-  letter-spacing: -0.01em;
-}
-
-.hero-subtitle {
-  margin-top: 20px;
-  color: #1d2c29;
-  font-size: 1.42rem;
-  font-weight: 700;
-  line-height: 1.28;
-}
-
-.hero-copy {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: 1.06rem;
-}
-
-.hero-shot {
-  display: block;
-  transition: transform 200ms ease;
-}
-
-.hero-shot:hover {
-  transform: translateY(-4px);
-}
-
-.hero-shot-caption {
-  display: block;
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 0.86rem;
-  text-align: center;
-}
-
-.browser-frame {
-  display: block;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: #fff;
-  box-shadow: var(--shadow);
-}
-
-.browser-bar {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--line);
-  background: var(--paper-soft);
-}
-
-.browser-dots {
-  display: inline-flex;
-  gap: 5px;
-}
-
-.browser-dots i {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #cfdcd6;
-}
-
-.browser-url {
-  flex: 1;
-  overflow: hidden;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: #fff;
-  color: var(--muted);
-  font-size: 0.76rem;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.browser-frame img {
-  width: 100%;
-  height: auto;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 32px;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 52px;
-  padding: 0 22px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  font-weight: 900;
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease;
-}
-
-.button-primary {
-  background: var(--brand);
-  color: #fff;
-  box-shadow: 0 16px 34px rgba(5, 118, 111, 0.24);
-}
-
-.button-primary:hover {
-  background: var(--brand-dark);
-}
-
-.button-secondary {
-  border-color: rgba(6, 63, 61, 0.18);
-  background: rgba(255, 255, 255, 0.84);
-  color: var(--brand-dark);
-}
-
-.button-secondary:hover {
-  border-color: rgba(6, 63, 61, 0.35);
-  box-shadow: var(--shadow-soft);
-}
-
-.button-light {
-  background: #fff;
-  color: var(--brand-dark);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
-}
-
-.prototype-callout {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 18px;
-  width: min(690px, 100%);
-  margin-top: 16px;
-  padding: 16px 18px;
-  border: 1px solid rgba(216, 228, 222, 0.95);
-  border-left: 5px solid var(--gold);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.84);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(12px);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease;
-}
-
-.prototype-callout:hover {
-  transform: translateY(-2px);
-  border-color: rgba(5, 118, 111, 0.28);
-  box-shadow: 0 18px 46px rgba(10, 35, 32, 0.12);
-}
-
-.prototype-callout small {
-  display: block;
-  margin-bottom: 3px;
-  color: var(--muted);
-  font-size: 0.76rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-.prototype-callout strong {
-  display: block;
-  color: var(--brand-dark);
-  font-size: 1.12rem;
-  line-height: 1.2;
-}
-
-.prototype-callout-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: var(--mint);
-  color: var(--brand-dark);
-  font-size: 0.88rem;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.hero-proof {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  width: min(690px, 100%);
-  margin: 34px 0 0;
-}
-
-.hero-proof div {
-  padding: 16px 18px;
-  border: 1px solid rgba(216, 228, 222, 0.9);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.76);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(12px);
-}
-
-.hero-proof dt {
-  color: var(--brand-dark);
-  font-size: 0.82rem;
-  font-weight: 900;
-}
-
-.hero-proof dd {
-  margin: 4px 0 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
-.section {
-  padding: 94px 0;
-}
-
-.section-inner {
-  width: min(1140px, calc(100% - 40px));
-  margin: 0 auto;
-}
-
-.two-column,
-.platform-layout,
-.governance-layout,
-.pilot-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 64px;
-  align-items: start;
-}
-
-.platform-layout {
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: 64px;
-  align-items: center;
-}
-
-.platform-shot {
-  margin: 0;
-}
-
-.platform-shot figcaption {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 0.86rem;
-  text-align: center;
-}
-
-.feature-icon,
-.governance-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--mint);
-  color: var(--brand-dark);
-}
-
-.feature-icon svg,
-.governance-icon svg {
-  width: 22px;
-  height: 22px;
-}
-
-.feature-icon {
-  margin-bottom: 16px;
-}
-
-.icon-gold {
-  background: rgba(229, 183, 67, 0.2);
-  color: #755b0f;
-}
-
-.icon-coral {
-  background: rgba(217, 101, 85, 0.15);
-  color: #8e3328;
-}
-
-.icon-blue {
-  background: rgba(63, 111, 150, 0.14);
-  color: #2c516f;
-}
-
-.governance-icon {
-  margin-bottom: 14px;
-}
-
-.section h2,
-.contact-section h2 {
-  font-size: 3.25rem;
-  line-height: 1.04;
-  letter-spacing: 0;
-}
-
-.section-heading {
-  max-width: 780px;
-  margin-bottom: 38px;
-}
-
-.section-heading.wide {
-  max-width: 860px;
-}
-
-.section-heading.compact {
-  margin-bottom: 26px;
-}
-
-.section-heading p:not(.section-kicker),
-.lead-block > p,
-.platform-layout > div > p,
-.contact-inner p {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: 1.08rem;
-}
-
-.problem-section {
-  padding-top: 72px;
-  background: var(--paper);
-}
-
-.pain-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.pain-card,
-.feature-card,
-.institution-card,
-.person-card,
-.impact-grid article,
-.governance-grid article,
-.pilot-steps article {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper-strong);
-  box-shadow: var(--shadow-soft);
-}
-
-.pain-card {
-  padding: 18px;
-}
-
-.pain-icon,
-.feature-mark,
-.flow-list span,
-.pilot-steps span {
-  display: inline-grid;
-  place-items: center;
-  border-radius: 999px;
-  background: var(--mint);
-  color: var(--brand-dark);
-  font-size: 0.78rem;
-  font-weight: 900;
-}
-
-.pain-icon {
-  width: 38px;
-  height: 30px;
-  margin-bottom: 18px;
-}
-
-.accent-gold,
-.mark-gold {
-  background: rgba(229, 183, 67, 0.22);
-  color: #755b0f;
-}
-
-.accent-coral,
-.mark-coral {
-  background: rgba(217, 101, 85, 0.16);
-  color: #8e3328;
-}
-
-.mark-blue {
-  background: rgba(63, 111, 150, 0.14);
-  color: #254d70;
-}
-
-.pain-card h3,
-.feature-card h3,
-.impact-grid h3,
-.governance-grid h3,
-.institution-card h3,
-.person-card h3,
-.flow-list h3,
-.pilot-steps h3 {
-  font-size: 1.12rem;
-  line-height: 1.2;
-}
-
-.pain-card p,
-.feature-card p,
-.impact-grid p,
-.governance-grid p,
-.institution-card p,
-.person-card p,
-.flow-list p,
-.pilot-steps p {
-  margin-top: 10px;
-  color: var(--muted);
-}
-
-.solution-section,
-.partners-section,
-.pilot-section {
-  background: var(--paper-soft);
-}
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.feature-card {
-  min-height: 220px;
-  padding: 24px;
-}
-
-.feature-mark {
-  width: 44px;
-  height: 34px;
-  margin-bottom: 30px;
-}
-
-.platform-section,
-.team-section {
-  background: #fff;
-}
-
-.check-list {
-  display: grid;
-  gap: 12px;
-  margin: 28px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.check-list li {
-  position: relative;
-  padding-left: 30px;
-  color: var(--ink-soft);
-  font-weight: 800;
-}
-
-.check-list li::before {
-  content: "";
-  position: absolute;
-  top: 0.35em;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background:
-    linear-gradient(135deg, var(--gold), var(--sage));
-  box-shadow: 0 0 0 5px rgba(111, 164, 111, 0.14);
-}
-
-.flow-section {
-  background: var(--ink);
-  color: #fff;
-}
-
-.flow-section .section-kicker {
-  color: var(--gold);
-}
-
-.flow-section h2,
-.flow-section h3 {
-  color: #fff;
-}
-
-.flow-list {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.flow-list li {
-  position: relative;
-  min-height: 214px;
-  padding: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.07);
-}
-
-.flow-list span {
-  width: 36px;
-  height: 36px;
-  margin-bottom: 24px;
-  background: var(--gold);
-  color: var(--ink);
-}
-
-.flow-list p {
-  color: rgba(255, 255, 255, 0.74);
-}
-
-.impact-grid,
-.governance-grid,
-.pilot-steps {
-  display: grid;
-  gap: 16px;
-}
-
-.impact-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.impact-grid article {
-  min-height: 220px;
-  padding: 26px;
-  border-top: 5px solid var(--sage);
-}
-
-.impact-grid article:nth-child(2) {
-  border-top-color: var(--gold);
-}
-
-.impact-grid article:nth-child(3) {
-  border-top-color: var(--blue);
-}
-
-.governance-section {
-  background:
-    linear-gradient(180deg, rgba(237, 245, 241, 0.68), rgba(246, 250, 248, 1)),
-    var(--paper);
-}
-
-.governance-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.governance-grid article {
-  padding: 24px;
-}
-
-.governance-grid span {
-  display: block;
-  width: 42px;
-  height: 6px;
-  margin-bottom: 28px;
-  border-radius: 999px;
-  background: var(--brand);
-}
-
-.governance-grid article:nth-child(2) span {
-  background: var(--gold);
-}
-
-.governance-grid article:nth-child(3) span {
-  background: var(--coral);
-}
-
-.governance-grid article:nth-child(4) span {
-  background: var(--blue);
-}
-
-.institution-grid {
-  display: grid;
-  grid-template-columns: 1.18fr 0.91fr 0.91fr;
-  gap: 16px;
-}
-
-.institution-card {
-  min-height: 250px;
-  padding: 24px;
-}
-
-.institution-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 22px;
-}
-
-.institution-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  padding: 7px;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 3px 12px rgba(10, 42, 38, 0.1);
-}
-
-.institution-logo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.institution-role,
-.role-label {
-  color: var(--muted);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-.primary-institution {
-  background: var(--ink);
-  border-color: var(--ink);
-}
-
-.primary-institution h3,
-.primary-institution p {
-  color: #fff;
-}
-
-.primary-institution p {
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.primary-institution .institution-role {
-  color: rgba(255, 255, 255, 0.68);
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: stretch;
-  gap: 20px;
-}
-
-.person-card {
-  display: grid;
-  grid-template-columns: 96px minmax(0, 1fr);
-  align-items: start;
-  gap: 20px;
-  min-height: 218px;
-  padding: 24px;
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease;
-}
-
-.person-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(5, 118, 111, 0.24);
-  box-shadow: 0 18px 46px rgba(10, 35, 32, 0.11);
-}
-
-.person-card-content {
-  min-width: 0;
-}
-
-.person-avatar {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 96px;
-  height: 96px;
-  border: 5px solid #fff;
-  border-radius: 50%;
-  overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(5, 118, 111, 0.95), rgba(111, 164, 111, 0.9)),
-    var(--brand);
-  color: #fff;
-  font-size: 1.05rem;
-  font-weight: 900;
-  box-shadow:
-    0 14px 28px rgba(5, 118, 111, 0.18),
-    0 0 0 9px rgba(223, 243, 230, 0.72);
-}
-
-.person-avatar::before {
-  content: attr(data-initials);
-}
-
-.person-avatar img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 34%;
-}
-
-.person-avatar img[hidden] {
-  display: none;
-}
-
-/*
-  Ajuste individual do enquadramento de cada integrante.
-  No index.html, altere os valores no atributo style de cada foto:
-  --x controla esquerda/direita; --y controla cima/baixo; --zoom aproxima/afasta.
-*/
-.person-avatar img.photo-ajustavel {
-  object-position: var(--x, 50%) var(--y, 34%);
-  transform: scale(var(--zoom, 1));
-  transform-origin: center;
-}
-
-.person-card h3 {
-  margin: 0 0 10px;
-  font-size: 1.22rem;
-  line-height: 1.18;
-  letter-spacing: -0.01em;
-}
-
-.role-label {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  max-width: 100%;
-  min-height: 28px;
-  margin: 0 0 14px;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: var(--mint);
-  color: var(--brand-dark);
-  font-size: 0.69rem;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-}
-
-.person-card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.98rem;
-  line-height: 1.52;
-}
-
-.team-highlight {
-  background: #fbfcf7;
-  border-color: #cfdcbd;
-}
-
-.pilot-layout {
-  align-items: stretch;
-}
-
-.pilot-steps {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.pilot-steps article {
-  padding: 24px;
-}
-
-.pilot-steps span {
-  width: 42px;
-  height: 32px;
-  margin-bottom: 28px;
-}
-
-.pilot-steps article:nth-child(2) span {
-  background: rgba(229, 183, 67, 0.22);
-  color: #755b0f;
-}
-
-.pilot-steps article:nth-child(3) span {
-  background: rgba(63, 111, 150, 0.14);
-  color: #254d70;
-}
-
-.contact-section {
-  padding: 112px 0;
-  background:
-    linear-gradient(135deg, rgba(5, 118, 111, 0.96), rgba(16, 32, 29, 0.97)),
-    var(--brand);
-  color: #fff;
-}
-
-.contact-inner {
-  width: min(930px, calc(100% - 40px));
-  margin: 0 auto;
-  text-align: center;
-}
-
-.contact-inner .section-kicker {
-  color: var(--gold);
-}
-
-.contact-inner h2 {
-  color: #fff;
-}
-
-.contact-inner p {
-  max-width: 740px;
-  margin-right: auto;
-  margin-left: auto;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.contact-inner .button {
-  margin-top: 30px;
-}
-
-.site-footer {
-  width: min(1140px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 48px 0 30px;
-  color: #43544f;
-  font-size: 0.94rem;
-}
-
-.site-footer a {
-  color: var(--brand-dark);
-  font-weight: 700;
-}
-
-.footer-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 44px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid var(--line);
-}
-
-.footer-brand {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.footer-brand strong {
-  display: block;
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-size: 1.12rem;
-}
-
-.footer-brand p {
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.footer-cols {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
-}
-
-.footer-cols h4 {
-  margin: 0 0 10px;
-  color: var(--brand-dark);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.footer-cols p {
-  margin: 0 0 7px;
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
-.footer-base {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding-top: 22px;
-}
-
-@media (max-width: 1040px) {
-  .desktop-nav {
-    display: none;
-  }
-
-  .site-header {
-    grid-template-columns: auto 1fr auto;
-  }
-
-  .header-action {
-    justify-self: end;
-  }
-
-  .menu-toggle {
-    display: inline-flex;
-  }
-
-  .hero {
-    padding-top: 128px;
-  }
-
-  .hero-split {
-    grid-template-columns: 1fr;
-    gap: 44px;
-  }
-
-  .hero h1 {
-    font-size: 3.3rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.3rem;
-  }
-
-  .section h2,
-  .contact-section h2 {
-    font-size: 2.65rem;
-  }
-
-  .two-column,
-  .platform-layout,
-  .governance-layout,
-  .pilot-layout {
-    grid-template-columns: 1fr;
-    gap: 34px;
-  }
-
-  .pain-grid,
-  .feature-grid,
-  .impact-grid,
-  .institution-grid,
-  .pilot-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .primary-institution {
-    grid-column: span 2;
-  }
-
-  .flow-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .person-card {
-    min-height: 210px;
-  }
-}
-
-@media (max-width: 720px) {
-  .site-header {
-    top: 10px;
-    width: min(100% - 20px, 1140px);
-    min-height: 58px;
-    gap: 8px;
-    padding: 8px;
-  }
-
-  .brand {
-    font-size: 0.94rem;
-  }
-
-  .brand-logo {
-    width: 38px;
-    height: 38px;
-    border-radius: 12px;
-  }
-
-  .header-action {
-    display: none;
-  }
-
-  .site-header {
-    grid-template-columns: 1fr auto;
-  }
-
-  .mobile-nav {
-    top: 78px;
-  }
-
-  .hero {
-    padding: 116px 0 60px;
-  }
-
-  .hero-content,
-  .section-inner,
-  .contact-inner,
-  .site-footer {
-    width: min(100% - 28px, 1140px);
-  }
-
-  .hero h1 {
-    font-size: 2.7rem;
-  }
-
-  .hero-subtitle {
-    margin-top: 22px;
-    font-size: 1.2rem;
-  }
-
-  .hero-copy,
-  .section-heading p:not(.section-kicker),
-  .lead-block > p,
-  .platform-layout > div > p,
-  .contact-inner p {
-    font-size: 1rem;
-  }
-
-  .hero-actions {
-    display: grid;
-  }
-
-  .button {
-    width: 100%;
-  }
-
-  .prototype-callout {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .prototype-callout-action {
-    width: 100%;
-  }
-
-  .hero-proof,
-  .pain-grid,
-  .feature-grid,
-  .flow-list,
-  .impact-grid,
-  .governance-grid,
-  .institution-grid,
-  .team-grid,
-  .pilot-steps {
-    grid-template-columns: 1fr;
-  }
-
-  .primary-institution {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-
-  .section {
-    padding: 72px 0;
-  }
-
-  .section h2,
-  .contact-section h2 {
-    font-size: 2.05rem;
-  }
-
-  .person-card {
-    grid-template-columns: 82px minmax(0, 1fr);
-    gap: 16px;
-    min-height: auto;
-    padding: 18px;
-  }
-
-  .person-avatar {
-    width: 82px;
-    height: 82px;
-    font-size: 0.94rem;
-  }
-
-  .person-card h3 {
-    font-size: 1.12rem;
-  }
-
-  .person-card p {
-    font-size: 0.94rem;
-  }
-
-  .contact-section {
-    padding: 82px 0;
-  }
-
-  .footer-inner,
-  .footer-cols {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-}
-
-@media (max-width: 420px) {
-  .brand span {
-    max-width: 170px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .hero h1 {
-    font-size: 2.4rem;
-  }
-}
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PEI Inteligente | Plataforma para educação inclusiva</title>
+    <meta
+      name="description"
+      content="PEI Inteligente ajuda escolas e redes de ensino a criar PEIs, adaptar atividades e acompanhar a evolução dos estudantes com validação humana."
+    />
+    <meta name="theme-color" content="#05766f" />
+    <meta property="og:title" content="PEI Inteligente" />
+    <meta
+      property="og:description"
+      content="Planos Educacionais Individualizados, atividades adaptadas e acompanhamento pedagógico em uma plataforma pensada para escolas e redes públicas."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pei-inteligente.vercel.app/" />
+    <meta property="og:image" content="assets/prototipo-visao-geral.webp" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PEI Inteligente" />
+    <meta
+      name="twitter:description"
+      content="Planos Educacionais Individualizados com apoio de IA e validação humana. Projeto de pesquisa aplicada do IFG, com IFMT e IFES."
+    />
+    <meta name="twitter:image" content="assets/prototipo-visao-geral.webp" />
+    <link rel="icon" href="assets/pei-inteligente-logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,640&display=swap"
+    />
+    <link rel="preload" as="image" href="assets/prototipo-visao-geral.webp" fetchpriority="high" />
+    <link rel="stylesheet" href="styles2.css?v=20260731-equipe-refinada" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PEI Inteligente",
+        "description": "Plataforma para criação de Planos Educacionais Individualizados, atividades adaptadas e acompanhamento pedagógico.",
+        "founder": "Instituto Federal de Goiás",
+        "url": "https://pei-inteligente.vercel.app/"
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header" aria-label="Topo do site">
+      <a class="brand" href="#inicio" aria-label="PEI Inteligente - início">
+        <img class="brand-logo" src="assets/pei-inteligente-logo.svg" alt="" width="42" height="42" />
+        <span>PEI Inteligente</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#solucao">Solução</a>
+        <a href="#plataforma">Plataforma</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#equipe">Equipe</a>
+      </nav>
+
+      <a class="header-action" href="#contato">Parcerias</a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Abrir menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Navegação móvel" hidden>
+      <a href="#solucao">Solução</a>
+      <a href="#plataforma">Plataforma</a>
+      <a href="#impacto">Impacto</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#contato">Parcerias</a>
+    </nav>
+
+    <main id="conteudo">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-content hero-split">
+          <div class="hero-text">
+            <p class="eyebrow">Projeto de pesquisa aplicada do IFG</p>
+            <h1 id="hero-title">PEI Inteligente</h1>
+            <p class="hero-subtitle">
+              O Plano Educacional Individualizado deixa o papel e vira rotina acompanhável.
+            </p>
+            <p class="hero-copy">
+              Uma plataforma para estruturar PEIs, adaptar atividades e registrar evidências com apoio de IA — e com a palavra final sempre da equipe escolar. Já existe um protótipo público, e você pode testá-lo agora.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contato">
+                Conversar sobre parceria
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <a
+                class="button button-secondary"
+                href="https://prototipo-pei-inteligente.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Testar o protótipo
+              </a>
+            </div>
+
+            <dl class="hero-proof" aria-label="Fatos do projeto">
+              <div>
+                <dt>Protótipo</dt>
+                <dd>Demonstração pública no ar</dd>
+              </div>
+              <div>
+                <dt>3 institutos</dt>
+                <dd>IFG, IFMT e IFES</dd>
+              </div>
+              <div>
+                <dt>FAPEG</dt>
+                <dd>Proposta à Chamada nº 13/2026</dd>
+              </div>
+            </dl>
+          </div>
+
+          <a
+            class="hero-shot"
+            href="https://prototipo-pei-inteligente.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir o protótipo público do PEI Inteligente"
+          >
+            <span class="browser-frame">
+              <span class="browser-bar" aria-hidden="true">
+                <span class="browser-dots"><i></i><i></i><i></i></span>
+                <span class="browser-url">prototipo-pei-inteligente.vercel.app</span>
+              </span>
+              <img
+                src="assets/prototipo-visao-geral.webp"
+                alt="Tela do protótipo do PEI Inteligente: painel do administrador com visão geral da inclusão, alunos cadastrados, professores vinculados e registros pedagógicos"
+                width="777"
+                height="457"
+                fetchpriority="high"
+              />
+            </span>
+            <span class="hero-shot-caption">Tela real do protótipo — módulo Administrador</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section problem-section" aria-labelledby="problema-title">
+        <div class="section-inner two-column">
+          <div>
+            <p class="section-kicker">O desafio</p>
+            <h2 id="problema-title">O PEI virou exigência legal. A rotina para produzi-lo continua manual.</h2>
+          </div>
+          <div class="lead-block">
+            <p>
+              Com o Decreto nº 12.773/2025 e a Portaria MEC nº 421/2026, a elaboração e o acompanhamento dos Planos Educacionais Individualizados ganharam prazos, responsáveis e critérios definidos. Na ponta, porém, o trabalho segue disperso: formulários refeitos do zero a cada semestre, registros espalhados entre planilhas, e-mails e cadernos, e pouca visibilidade sobre a evolução real do estudante.
+            </p>
+            <div class="pain-grid" aria-label="Desafios enfrentados pelas equipes">
+              <article class="pain-card">
+                <span class="pain-icon" aria-hidden="true">01</span>
+                <h3>PEIs demorados</h3>
+                <p>Elaboração depende de muitos documentos e pouco reaproveitamento de histórico.</p>
+              </article>
+              <article class="pain-card">
+                <span class="pain-icon accent-gold" aria-hidden="true">02</span>
+                <h3>Adaptações dispersas</h3>
+                <p>Atividades, estratégias e evidências ficam fragmentadas entre pessoas e sistemas.</p>
+              </article>
+              <article class="pain-card">
+                <span class="pain-icon accent-coral" aria-hidden="true">03</span>
+                <h3>Gestão sem leitura</h3>
+                <p>Coordenação, reitoria e secretarias têm dificuldade para enxergar demandas e avanços.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section solution-section" id="solucao" aria-labelledby="solucao-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="section-kicker">A solução</p>
+            <h2 id="solucao-title">Uma plataforma para transformar inclusão em fluxo de trabalho.</h2>
+            <p>
+              O PEI Inteligente organiza etapas, sugere caminhos pedagógicos e mantém a equipe no centro da decisão. A tecnologia acelera a rotina; a escola valida, contextualiza e acompanha.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              </span>
+              <h3>Plano orientado</h3>
+              <p>Objetivos específicos, metodologia, avaliação e resultados esperados na mesma estrutura que o docente já reconhece do formulário oficial.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon icon-gold" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg>
+              </span>
+              <h3>Atividades adaptadas</h3>
+              <p>Propostas ajustadas ao perfil de cada estudante, com justificativa pedagógica registrada.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon icon-coral" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.3L18 9l-4.3 1.7L12 15l-1.7-4.3L6 9l4.3-1.7L12 3z"/><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z"/></svg>
+              </span>
+              <h3>Sugestões com IA</h3>
+              <p>O modelo gera um rascunho a partir do contexto do estudante. Quem revisa, ajusta e aprova é o professor.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon icon-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </span>
+              <h3>Histórico pedagógico</h3>
+              <p>Evolução, ajustes e evidências em uma linha contínua entre semestres e ciclos.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M21 20H3"/></svg>
+              </span>
+              <h3>Relatórios para reuniões</h3>
+              <p>Sínteses prontas para conselhos de classe, devolutivas às famílias e planejamento com o AEE.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon icon-gold" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+              </span>
+              <h3>Visão institucional</h3>
+              <p>Status dos planos e demandas de apoio agregados por escola e por rede, para orientar formação e política pública.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section platform-section" id="plataforma" aria-labelledby="plataforma-title">
+        <div class="section-inner platform-layout">
+          <div>
+            <p class="section-kicker">Plataforma</p>
+            <h2 id="plataforma-title">O formulário que o docente já conhece — agora com apoio inteligente.</h2>
+            <p>
+              A tela ao lado é do protótipo em funcionamento. O professor informa o componente curricular e os conteúdos programáticos; a IA propõe objetivos específicos, metodologia, avaliação e resultados esperados. Nada é salvo sem revisão.
+            </p>
+
+            <ul class="check-list">
+              <li>Perfil do estudante com necessidades, habilidades, dificuldades e adaptações.</li>
+              <li>Geração assistida por modelo de linguagem, com edição livre antes de salvar.</li>
+              <li>Exportação em texto para anexar a processos e reuniões.</li>
+            </ul>
+          </div>
+
+          <figure class="platform-shot">
+            <span class="browser-frame">
+              <span class="browser-bar" aria-hidden="true">
+                <span class="browser-dots"><i></i><i></i><i></i></span>
+                <span class="browser-url">prototipo-pei-inteligente.vercel.app</span>
+              </span>
+              <img
+                src="assets/prototipo-pei-form.webp"
+                alt="Tela do protótipo: formulário do Plano Educacional Individualizado com campos de conteúdos programáticos, objetivos específicos, metodologia, avaliação e resultados esperados, e botões Gerar com IA, Salvar PEI e Exportar texto"
+                width="583"
+                height="560"
+                loading="lazy"
+              />
+            </span>
+            <figcaption>Módulo Professor — criação do PEI com geração assistida e validação humana.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section flow-section" aria-labelledby="fluxo-title">
+        <div class="section-inner">
+          <div class="section-heading compact">
+            <p class="section-kicker">Como funciona</p>
+            <h2 id="fluxo-title">Quatro etapas — e a validação humana em todas elas.</h2>
+          </div>
+
+          <ol class="flow-list">
+            <li>
+              <span>1</span>
+              <div>
+                <h3>Mapear</h3>
+                <p>A equipe registra perfil, necessidades, contexto escolar e barreiras de aprendizagem.</p>
+              </div>
+            </li>
+            <li>
+              <span>2</span>
+              <div>
+                <h3>Planejar</h3>
+                <p>A plataforma estrutura objetivos, recursos, estratégias e propostas de adaptação.</p>
+              </div>
+            </li>
+            <li>
+              <span>3</span>
+              <div>
+                <h3>Validar</h3>
+                <p>Professores, AEE e coordenação revisam e ajustam cada decisão pedagógica.</p>
+              </div>
+            </li>
+            <li>
+              <span>4</span>
+              <div>
+                <h3>Acompanhar</h3>
+                <p>A escola registra evidências, revê estratégias e mantém continuidade entre ciclos.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section impact-section" id="impacto" aria-labelledby="impacto-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="section-kicker">Impacto esperado</p>
+            <h2 id="impacto-title">O que muda na prática, para cada perfil da escola.</h2>
+          </div>
+
+          <div class="impact-grid">
+            <article>
+              <h3>Para professores</h3>
+              <p>Menos tempo em tarefas repetitivas e mais clareza para adaptar atividades com intenção pedagógica.</p>
+            </article>
+            <article>
+              <h3>Para AEE e coordenação</h3>
+              <p>Histórico unificado, decisões documentadas e reuniões com evidências mais organizadas.</p>
+            </article>
+            <article>
+              <h3>Para redes públicas</h3>
+              <p>Visão agregada para priorizar formação, apoiar escolas e monitorar a implementação da política inclusiva.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section governance-section" aria-labelledby="governanca-title">
+        <div class="section-inner governance-layout">
+          <div>
+            <p class="section-kicker">Responsabilidade</p>
+            <h2 id="governanca-title">A decisão pedagógica continua com quem conhece o estudante.</h2>
+          </div>
+          <div class="governance-grid">
+            <article>
+              <span class="governance-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+              </span>
+              <h3>Validação humana</h3>
+              <p>Nenhuma sugestão vira plano sem revisão de quem acompanha o estudante em sala.</p>
+            </article>
+            <article>
+              <span class="governance-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg>
+              </span>
+              <h3>Rastreabilidade</h3>
+              <p>Planos e adaptações mantêm histórico de alterações, para que a equipe entenda o que mudou e por quê.</p>
+            </article>
+            <article>
+              <span class="governance-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9l-10-5L2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg>
+              </span>
+              <h3>Formação continuada</h3>
+              <p>A implantação vem acompanhada de orientação pedagógica para o uso responsável da ferramenta.</p>
+            </article>
+            <article>
+              <span class="governance-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l4-3v16M13 21V5l6 3v13"/></svg>
+              </span>
+              <h3>Escala pública</h3>
+              <p>Pensado desde o início para dialogar com reitorias, SEDUCs e redes de ensino.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section partners-section" aria-labelledby="parceiros-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="section-kicker">Instituições</p>
+            <h2 id="parceiros-title">Um projeto conectado à educação pública, tecnológica e inclusiva.</h2>
+            <p>
+              O PEI Inteligente é proposto pelo IFG e se fortalece com instituições parceiras que aproximam pesquisa aplicada, formação docente e diálogo com redes públicas.
+            </p>
+          </div>
+
+          <div class="institution-grid">
+            <article class="institution-card primary-institution">
+              <div class="institution-head">
+                <span class="institution-logo">
+                  <img src="assets/ifg2_symbol.webp" alt="Símbolo do IFG" width="76" height="97" loading="lazy" />
+                </span>
+                <span class="institution-role">Realização</span>
+              </div>
+              <h3>Instituto Federal de Goiás</h3>
+              <p>Responsável pela idealização, desenvolvimento e articulação institucional do projeto.</p>
+            </article>
+            <article class="institution-card">
+              <div class="institution-head">
+                <span class="institution-logo">
+                  <img src="assets/ifes2_symbol.webp" alt="Símbolo do IFES" width="487" height="655" loading="lazy" />
+                </span>
+                <span class="institution-role">Apoio</span>
+              </div>
+              <h3>IFES - Campus Laranja da Terra</h3>
+              <p>Apoia a rede de colaboração, validação e aproximação com contextos educacionais reais.</p>
+            </article>
+            <article class="institution-card">
+              <div class="institution-head">
+                <span class="institution-logo">
+                  <img src="assets/ifmt2_symbol.webp" alt="Símbolo do IFMT" width="113" height="149" loading="lazy" />
+                </span>
+                <span class="institution-role">Apoio</span>
+              </div>
+              <h3>IFMT - Campus Barra do Garças</h3>
+              <p>Fortalece a dimensão multicampi e a construção coletiva da solução.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section team-section" id="equipe" aria-labelledby="equipe-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <p class="section-kicker">Equipe</p>
+            <h2 id="equipe-title">Tecnologia, inclusão e gestão pública trabalhando juntas.</h2>
+            <p>
+              A equipe combina pesquisa aplicada, inteligência artificial, educação inclusiva e articulação institucional para criar uma solução próxima da realidade das escolas.
+            </p>
+          </div>
+
+          <div class="team-grid">
+            <article class="person-card">
+              <span class="person-avatar" data-initials="TL" aria-hidden="true">
+                <img
+                  class="photo-ajustavel"
+                  style="--x: 50%; --y: 35%; --zoom: 1.05;"
+                  src="assets/tatiane2.webp?v=3"
+                  alt=""
+                  width="357"
+                  height="395"
+                  loading="lazy"
+                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
+                />
+              </span>
+              <div class="person-card-content">
+                <h3>Tatiane Lopes</h3>
+                <span class="role-label">Educação inclusiva</span>
+                <p>Mestre em Educação pela UFOP, especialista em AEE e professora efetiva no IFMT.</p>
+              </div>
+            </article>
+
+            <article class="person-card">
+              <span class="person-avatar" data-initials="RS" aria-hidden="true">
+                <img
+                  class="photo-ajustavel"
+                  style="--x: 50%; --y: 35%; --zoom: 1.08;"
+                  src="assets/ricardo.webp?v=3"
+                  alt=""
+                  width="336"
+                  height="448"
+                  loading="lazy"
+                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
+                />
+              </span>
+              <div class="person-card-content">
+                <h3>Ricardo da Silva Santos</h3>
+                <span class="role-label">Matemática aplicada e IA</span>
+                <p>Doutorando em Matemática Aplicada pela UNICAMP e professor do IFG – Campus Goiânia.</p>
+              </div>
+            </article>
+
+            <article class="person-card">
+              <span class="person-avatar" data-initials="LR" aria-hidden="true">
+                <img
+                  class="photo-ajustavel"
+                  style="--x: 50%; --y: 42%; --zoom: 1.1;"
+                  src="assets/lorena.webp?v=3"
+                  alt=""
+                  width="200"
+                  height="200"
+                  loading="lazy"
+                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
+                />
+              </span>
+              <div class="person-card-content">
+                <h3>Lorena Rosa</h3>
+                <span class="role-label">Articulação institucional</span>
+                <p>Doutora em Ciências da Saúde pela UFG e Pró-reitora de Pesquisa e Pós-Graduação do IFG.</p>
+              </div>
+            </article>
+
+            <article class="person-card">
+              <span class="person-avatar" data-initials="UB" aria-hidden="true">
+                <img
+                  class="photo-ajustavel"
+                  style="--x: 50%; --y: 34%; --zoom: 1.08;"
+                  src="assets/uender.webp?v=3"
+                  alt=""
+                  width="225"
+                  height="225"
+                  loading="lazy"
+                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
+                />
+              </span>
+              <div class="person-card-content">
+                <h3>Uender Barbosa</h3>
+                <span class="role-label">IA e métodos computacionais</span>
+                <p>Doutor em Engenharia Elétrica e de Computação pela UFG e pesquisador em inteligência artificial.</p>
+              </div>
+            </article>
+
+            <article class="person-card">
+              <span class="person-avatar" data-initials="DV" aria-hidden="true">
+                <img
+                  class="photo-ajustavel"
+                  style="--x: 50%; --y: 30%; --zoom: 1.6;"
+                  src="assets/daniel.webp?v=3"
+                  alt=""
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
+                />
+              </span>
+              <div class="person-card-content">
+                <h3>Daniel Henrique Valadão Araújo</h3>
+                <span class="role-label">Articulação escolar</span>
+                <p>Pedagogo e profissional de apoio no CEPI Ismael Silva de Jesus, com atuação na articulação e no acompanhamento do projeto-piloto.</p>
+              </div>
+            </article>
+
+            <article class="person-card">
+              <span class="person-avatar" data-initials="ML" aria-hidden="true">
+                <img
+                  class="photo-ajustavel"
+                  style="--x: 47%; --y: 28%; --zoom: 1.1;"
+                  src="assets/marcio.webp?v=3"
+                  alt=""
+                  width="720"
+                  height="480"
+                  loading="lazy"
+                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
+                />
+              </span>
+              <div class="person-card-content">
+                <h3>Márcio Dias de Lima</h3>
+                <span class="role-label">Computação aplicada</span>
+                <p>Doutor em Ciências da Computação pela UFG e professor do IFG.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section pilot-section" aria-labelledby="piloto-title">
+        <div class="section-inner pilot-layout">
+          <div>
+            <p class="section-kicker">Parcerias e pilotos</p>
+            <h2 id="piloto-title">Um caminho objetivo para validar com escolas e redes.</h2>
+          </div>
+          <div class="pilot-steps">
+            <article>
+              <span>01</span>
+              <h3>Diagnóstico</h3>
+              <p>Entender fluxo atual de PEI, AEE, registros e necessidades da rede.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Piloto orientado</h3>
+              <p>Aplicar com escolas selecionadas, acompanhando uso, dúvidas e ajustes.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Escala responsável</h3>
+              <p>Consolidar formação, indicadores e integração com a política institucional.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contato" aria-labelledby="contato-title">
+        <div class="contact-inner">
+          <p class="section-kicker">Vamos conversar</p>
+          <h2 id="contato-title">Leve o PEI Inteligente para uma rede que precisa de inclusão com método e escala.</h2>
+          <p>
+            A equipe está aberta a diálogo com instituições, reitorias, secretarias de educação e parceiros públicos interessados em pilotos, validação e implantação.
+          </p>
+          <a
+            class="button button-light"
+            href="https://wa.me/5562985499620?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20uma%20parceria%20com%20o%20PEI%20Inteligente."
+            target="_blank"
+            rel="noopener"
+          >
+            Chamar pelo WhatsApp
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/pei-inteligente-logo.svg" alt="" width="36" height="36" />
+          <div>
+            <strong>PEI Inteligente</strong>
+            <p>Projeto de pesquisa aplicada em educação especial inclusiva.</p>
+          </div>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <h4>Instituições</h4>
+            <p>Realização: Instituto Federal de Goiás</p>
+            <p>Apoio: IFMT — Campus Barra do Garças</p>
+            <p>Apoio: IFES — Campus Laranja da Terra</p>
+          </div>
+          <div>
+            <h4>Projeto</h4>
+            <p><a href="https://prototipo-pei-inteligente.vercel.app/" target="_blank" rel="noopener noreferrer">Protótipo público</a></p>
+            <p>Proposta submetida à FAPEG — Chamada Pública nº 13/2026</p>
+            <p>Referências legais: Decreto nº 12.773/2025 · Portaria MEC nº 421/2026</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; 2026 PEI Inteligente · Instituto Federal de Goiás</p>
+        <a href="#inicio">Voltar ao topo</a>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var toggle = document.querySelector(".menu-toggle");
+        var nav = document.getElementById("mobile-nav");
+        var header = document.querySelector(".site-header");
+        if (!toggle || !nav || !header) return;
+
+        function closeMenu() {
+          nav.hidden = true;
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "Abrir menu");
+        }
+
+        toggle.addEventListener("click", function () {
+          var isOpen = toggle.getAttribute("aria-expanded") === "true";
+          if (isOpen) {
+            closeMenu();
+          } else {
+            nav.hidden = false;
+            toggle.setAttribute("aria-expanded", "true");
+            toggle.setAttribute("aria-label", "Fechar menu");
+          }
+        });
+
+        nav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") closeMenu();
+        });
+
+        function updateHeader() {
+          header.classList.toggle("is-scrolled", window.scrollY > 12);
+        }
+
+        updateHeader();
+        window.addEventListener("scroll", updateHeader, { passive: true });
+      })();
+    </script>
+  </body>
+</html>
