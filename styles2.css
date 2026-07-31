@@ -969,14 +969,12 @@ h2 {
   display: none;
 }
 
-.person-avatar img.photo-wide {
-  object-position: 47% 27%;
-}
-
-.person-avatar img.photo-daniel {
-  transform: scale(1.5);
+/* Ajuste individual do enquadramento de cada integrante.
+   Altere --x, --y e --zoom diretamente no atributo style da foto no index.html. */
+.person-avatar img.photo-ajustavel {
+  object-position: var(--x, 50%) var(--y, 34%);
+  transform: scale(var(--zoom, 1));
   transform-origin: center;
-  object-position: center 30%;
 }
 
 .role-label {
