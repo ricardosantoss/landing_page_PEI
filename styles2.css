@@ -976,7 +976,7 @@ h2 {
 .person-avatar img.photo-daniel {
   transform: scale(1.5);
   transform-origin: center;
-  object-position: center 30%;
+  object-position: center 50%;
 }
 
 .role-label {
