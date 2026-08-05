@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PEI Inteligente | Plataforma para educação inclusiva</title>
+    <title>PEI Inteligente | Educação inclusiva com método e continuidade</title>
     <meta
       name="description"
-      content="PEI Inteligente ajuda escolas e redes de ensino a criar PEIs, adaptar atividades e acompanhar a evolução dos estudantes com validação humana."
+      content="Uma plataforma para criar Planos Educacionais Individualizados, adaptar atividades e acompanhar cada estudante com apoio de IA e decisão humana."
     />
-    <meta name="theme-color" content="#05766f" />
+    <meta name="theme-color" content="#f8faf9" />
     <meta property="og:title" content="PEI Inteligente" />
     <meta
       property="og:description"
-      content="Planos Educacionais Individualizados, atividades adaptadas e acompanhamento pedagógico em uma plataforma pensada para escolas e redes públicas."
+      content="Planos Educacionais Individualizados com apoio de IA, validação humana e acompanhamento pedagógico."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pei-inteligente.vercel.app/" />
@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="PEI Inteligente" />
     <meta
       name="twitter:description"
-      content="Planos Educacionais Individualizados com apoio de IA e validação humana. Projeto de pesquisa aplicada do IFG, com IFMT, IFES e o CEPI Ismael Silva de Jesus como escola parceira."
+      content="Tecnologia para apoiar a educação inclusiva sem tirar a decisão das mãos de quem conhece o estudante."
     />
     <meta name="twitter:image" content="assets/prototipo-visao-geral.webp" />
     <link rel="icon" href="assets/pei-inteligente-logo.svg" type="image/svg+xml" />
@@ -30,10 +30,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,640&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap"
     />
     <link rel="preload" as="image" href="assets/prototipo-visao-geral.webp" fetchpriority="high" />
-    <link rel="stylesheet" href="styles2.css?v=20260802-cepi-parceiro" />
+    <link rel="stylesheet" href="styles2.css?v=20260805-refactor" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -48,668 +48,518 @@
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-    <header class="site-header" aria-label="Topo do site">
-      <a class="brand" href="#inicio" aria-label="PEI Inteligente - início">
-        <img class="brand-logo" src="assets/pei-inteligente-logo.svg" alt="" width="42" height="42" />
-        <span>PEI Inteligente</span>
-      </a>
+    <header class="site-header" data-header>
+      <nav class="nav-shell" aria-label="Navegação principal">
+        <a class="brand" href="#inicio" aria-label="PEI Inteligente — página inicial">
+          <img src="assets/pei-inteligente-logo.svg" alt="" width="52" height="52" />
+          <span>PEI <strong>Inteligente</strong></span>
+        </a>
 
-      <nav class="desktop-nav" aria-label="Navegação principal">
-        <a href="#solucao">Solução</a>
-        <a href="#plataforma">Plataforma</a>
-        <a href="#impacto">Impacto</a>
-        <a href="#equipe">Equipe</a>
+        <div class="desktop-nav">
+          <a href="#recursos">Recursos</a>
+          <a href="#plataforma">Plataforma</a>
+          <a href="#instituicoes">Instituições</a>
+          <a href="#equipe">Equipe</a>
+          <a href="#faq">FAQ</a>
+        </div>
+
+        <a class="nav-cta" href="#contato">Parcerias</a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Abrir menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
       </nav>
 
-      <a class="header-action" href="#contato">Parcerias</a>
-
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="mobile-nav"
-        aria-label="Abrir menu"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Navegação móvel" hidden>
+        <a href="#recursos">Recursos</a>
+        <a href="#plataforma">Plataforma</a>
+        <a href="#instituicoes">Instituições</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Parcerias</a>
+      </nav>
     </header>
 
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Navegação móvel" hidden>
-      <a href="#solucao">Solução</a>
-      <a href="#plataforma">Plataforma</a>
-      <a href="#impacto">Impacto</a>
-      <a href="#equipe">Equipe</a>
-      <a href="#contato">Parcerias</a>
-    </nav>
-
     <main id="conteudo">
-      <section class="hero" id="inicio" aria-labelledby="hero-title">
-        <div class="hero-content hero-split">
-          <div class="hero-text">
-            <p class="eyebrow">Projeto de pesquisa aplicada do IFG</p>
-            <h1 id="hero-title">PEI Inteligente</h1>
-            <p class="hero-subtitle">
-              O Plano Educacional Individualizado deixa o papel e vira rotina acompanhável.
-            </p>
-            <p class="hero-copy">
-              Uma plataforma para estruturar PEIs, adaptar atividades e registrar evidências com apoio de IA — e com a palavra final sempre da equipe escolar. Já existe um protótipo público, e você pode testá-lo agora.
-            </p>
-
-            <div class="hero-actions">
-              <a class="button button-primary" href="#contato">
-                Conversar sobre parceria
-                <span aria-hidden="true">&rarr;</span>
-              </a>
-              <a
-                class="button button-secondary"
-                href="https://prototipo-pei-inteligente.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Testar o protótipo
-              </a>
-            </div>
-
-            <dl class="hero-proof" aria-label="Fatos do projeto">
-              <div>
-                <dt>Protótipo</dt>
-                <dd>Demonstração pública no ar</dd>
-              </div>
-              <div>
-                <dt>4 instituições</dt>
-                <dd>IFG, IFMT, IFES e CEPI</dd>
-              </div>
-              <div>
-                <dt>FAPEG</dt>
-                <dd>Proposta à Chamada nº 13/2026</dd>
-              </div>
-            </dl>
+      <section class="hero grid-background" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <p class="eyebrow"><span></span> Pesquisa aplicada em educação inclusiva</p>
+          <h1 id="hero-title">O plano de cada estudante, vivo durante todo o ano.</h1>
+          <p class="hero-copy">
+            O PEI Inteligente ajuda escolas a planejar, adaptar e acompanhar a aprendizagem com apoio de inteligência artificial — e com a decisão final sempre nas mãos da equipe pedagógica.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="https://prototipo-pei-inteligente.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Testar o protótipo
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://wa.me/5562985499620?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20uma%20parceria%20com%20o%20PEI%20Inteligente."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Falar com a equipe
+            </a>
           </div>
-
-          <a
-            class="hero-shot"
-            href="https://prototipo-pei-inteligente.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Abrir o protótipo público do PEI Inteligente"
-          >
-            <span class="browser-frame">
-              <span class="browser-bar" aria-hidden="true">
-                <span class="browser-dots"><i></i><i></i><i></i></span>
-                <span class="browser-url">prototipo-pei-inteligente.vercel.app</span>
-              </span>
-              <img
-                src="assets/prototipo-visao-geral.webp"
-                alt="Tela do protótipo do PEI Inteligente: painel do administrador com visão geral da inclusão, alunos cadastrados, professores vinculados e registros pedagógicos"
-                width="777"
-                height="457"
-                fetchpriority="high"
-              />
-            </span>
-            <span class="hero-shot-caption">Tela real do protótipo — módulo Administrador</span>
-          </a>
+          <p class="hero-note">
+            <span aria-hidden="true">✓</span>
+            IA para apoiar. Educadores para decidir.
+          </p>
         </div>
       </section>
 
-      <section class="section problem-section" aria-labelledby="problema-title">
-        <div class="section-inner two-column">
-          <div>
-            <p class="section-kicker">O desafio</p>
-            <h2 id="problema-title">O PEI virou exigência legal. A rotina para produzi-lo continua manual.</h2>
-          </div>
-          <div class="lead-block">
-            <p>
-              Com o Decreto nº 12.773/2025 e a Portaria MEC nº 421/2026, a elaboração e o acompanhamento dos Planos Educacionais Individualizados ganharam prazos, responsáveis e critérios definidos. Na ponta, porém, o trabalho segue disperso: formulários refeitos do zero a cada semestre, registros espalhados entre planilhas, e-mails e cadernos, e pouca visibilidade sobre a evolução real do estudante.
-            </p>
-            <div class="pain-grid" aria-label="Desafios enfrentados pelas equipes">
-              <article class="pain-card">
-                <span class="pain-icon" aria-hidden="true">01</span>
-                <h3>PEIs demorados</h3>
-                <p>Elaboração depende de muitos documentos e pouco reaproveitamento de histórico.</p>
-              </article>
-              <article class="pain-card">
-                <span class="pain-icon accent-gold" aria-hidden="true">02</span>
-                <h3>Adaptações dispersas</h3>
-                <p>Atividades, estratégias e evidências ficam fragmentadas entre pessoas e sistemas.</p>
-              </article>
-              <article class="pain-card">
-                <span class="pain-icon accent-coral" aria-hidden="true">03</span>
-                <h3>Gestão sem leitura</h3>
-                <p>Coordenação, reitoria e secretarias têm dificuldade para enxergar demandas e avanços.</p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section solution-section" id="solucao" aria-labelledby="solucao-title">
-        <div class="section-inner">
-          <div class="section-heading wide">
-            <p class="section-kicker">A solução</p>
-            <h2 id="solucao-title">Uma plataforma para transformar inclusão em fluxo de trabalho.</h2>
-            <p>
-              O PEI Inteligente organiza etapas, sugere caminhos pedagógicos e mantém a equipe no centro da decisão. A tecnologia acelera a rotina; a escola valida, contextualiza e acompanha.
-            </p>
-          </div>
-
-          <div class="feature-grid">
-            <article class="feature-card">
-              <span class="feature-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              </span>
-              <h3>Plano orientado</h3>
-              <p>Objetivos específicos, metodologia, avaliação e resultados esperados na mesma estrutura que o docente já reconhece do formulário oficial.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-icon icon-gold" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><rect x="8" y="8" width="8" height="8" rx="2"/></svg>
-              </span>
-              <h3>Atividades adaptadas</h3>
-              <p>Propostas ajustadas ao perfil de cada estudante, com justificativa pedagógica registrada.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-icon icon-coral" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.3L18 9l-4.3 1.7L12 15l-1.7-4.3L6 9l4.3-1.7L12 3z"/><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z"/></svg>
-              </span>
-              <h3>Sugestões com IA</h3>
-              <p>O modelo gera um rascunho a partir do contexto do estudante. Quem revisa, ajusta e aprova é o professor.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-icon icon-blue" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-              </span>
-              <h3>Histórico pedagógico</h3>
-              <p>Evolução, ajustes e evidências em uma linha contínua entre semestres e ciclos.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M21 20H3"/></svg>
-              </span>
-              <h3>Relatórios para reuniões</h3>
-              <p>Sínteses prontas para conselhos de classe, devolutivas às famílias e planejamento com o AEE.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-icon icon-gold" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
-              </span>
-              <h3>Visão institucional</h3>
-              <p>Status dos planos e demandas de apoio agregados por escola e por rede, para orientar formação e política pública.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section platform-section" id="plataforma" aria-labelledby="plataforma-title">
-        <div class="section-inner platform-layout">
-          <div>
-            <p class="section-kicker">Plataforma</p>
-            <h2 id="plataforma-title">O formulário que o docente já conhece — agora com apoio inteligente.</h2>
-            <p>
-              A tela ao lado é do protótipo em funcionamento. O professor informa o componente curricular e os conteúdos programáticos; a IA propõe objetivos específicos, metodologia, avaliação e resultados esperados. Nada é salvo sem revisão.
-            </p>
-
-            <ul class="check-list">
-              <li>Perfil do estudante com necessidades, habilidades, dificuldades e adaptações.</li>
-              <li>Geração assistida por modelo de linguagem, com edição livre antes de salvar.</li>
-              <li>Exportação em texto para anexar a processos e reuniões.</li>
-            </ul>
-          </div>
-
-          <figure class="platform-shot">
-            <span class="browser-frame">
-              <span class="browser-bar" aria-hidden="true">
-                <span class="browser-dots"><i></i><i></i><i></i></span>
-                <span class="browser-url">prototipo-pei-inteligente.vercel.app</span>
-              </span>
-              <img
-                src="assets/prototipo-pei-form.webp"
-                alt="Tela do protótipo: formulário do Plano Educacional Individualizado com campos de conteúdos programáticos, objetivos específicos, metodologia, avaliação e resultados esperados, e botões Gerar com IA, Salvar PEI e Exportar texto"
-                width="583"
-                height="560"
-                loading="lazy"
-              />
-            </span>
-            <figcaption>Módulo Professor — criação do PEI com geração assistida e validação humana.</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="section flow-section" aria-labelledby="fluxo-title">
-        <div class="section-inner">
-          <div class="section-heading compact">
-            <p class="section-kicker">Como funciona</p>
-            <h2 id="fluxo-title">Quatro etapas — e a validação humana em todas elas.</h2>
-          </div>
-
-          <ol class="flow-list">
-            <li>
-              <span>1</span>
-              <div>
-                <h3>Mapear</h3>
-                <p>A equipe registra perfil, necessidades, contexto escolar e barreiras de aprendizagem.</p>
-              </div>
-            </li>
-            <li>
-              <span>2</span>
-              <div>
-                <h3>Planejar</h3>
-                <p>A plataforma estrutura objetivos, recursos, estratégias e propostas de adaptação.</p>
-              </div>
-            </li>
-            <li>
-              <span>3</span>
-              <div>
-                <h3>Validar</h3>
-                <p>Professores, AEE e coordenação revisam e ajustam cada decisão pedagógica.</p>
-              </div>
-            </li>
-            <li>
-              <span>4</span>
-              <div>
-                <h3>Acompanhar</h3>
-                <p>A escola registra evidências, revê estratégias e mantém continuidade entre ciclos.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section impact-section" id="impacto" aria-labelledby="impacto-title">
-        <div class="section-inner">
-          <div class="section-heading wide">
-            <p class="section-kicker">Impacto esperado</p>
-            <h2 id="impacto-title">O que muda na prática, para cada perfil da escola.</h2>
-          </div>
-
-          <div class="impact-grid">
-            <article>
-              <h3>Para professores</h3>
-              <p>Menos tempo em tarefas repetitivas e mais clareza para adaptar atividades com intenção pedagógica.</p>
-            </article>
-            <article>
-              <h3>Para AEE e coordenação</h3>
-              <p>Histórico unificado, decisões documentadas e reuniões com evidências mais organizadas.</p>
-            </article>
-            <article>
-              <h3>Para redes públicas</h3>
-              <p>Visão agregada para priorizar formação, apoiar escolas e monitorar a implementação da política inclusiva.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section governance-section" aria-labelledby="governanca-title">
-        <div class="section-inner governance-layout">
-          <div>
-            <p class="section-kicker">Responsabilidade</p>
-            <h2 id="governanca-title">A decisão pedagógica continua com quem conhece o estudante.</h2>
-          </div>
-          <div class="governance-grid">
-            <article>
-              <span class="governance-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-              </span>
-              <h3>Validação humana</h3>
-              <p>Nenhuma sugestão vira plano sem revisão de quem acompanha o estudante em sala.</p>
-            </article>
-            <article>
-              <span class="governance-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg>
-              </span>
-              <h3>Rastreabilidade</h3>
-              <p>Planos e adaptações mantêm histórico de alterações, para que a equipe entenda o que mudou e por quê.</p>
-            </article>
-            <article>
-              <span class="governance-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9l-10-5L2 9l10 5 10-5z"/><path d="M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg>
-              </span>
-              <h3>Formação continuada</h3>
-              <p>A implantação vem acompanhada de orientação pedagógica para o uso responsável da ferramenta.</p>
-            </article>
-            <article>
-              <span class="governance-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l4-3v16M13 21V5l6 3v13"/></svg>
-              </span>
-              <h3>Escala pública</h3>
-              <p>Pensado desde o início para dialogar com reitorias, SEDUCs e redes de ensino.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section partners-section" aria-labelledby="parceiros-title">
-        <div class="section-inner">
-          <div class="section-heading wide">
-            <p class="section-kicker">Instituições</p>
-            <h2 id="parceiros-title">Um projeto conectado à educação pública, tecnológica e inclusiva.</h2>
-            <p>
-              O PEI Inteligente é proposto pelo IFG e se fortalece com instituições parceiras que aproximam pesquisa aplicada, formação docente e validação em contextos educacionais reais.
-            </p>
-          </div>
-
-          <div class="institution-grid">
-            <article class="institution-card primary-institution">
-              <div class="institution-head">
-                <span class="institution-logo">
-                  <img
-                    src="assets/ifg2_symbol.webp"
-                    alt="Símbolo do Instituto Federal de Goiás"
-                    width="76"
-                    height="97"
-                    loading="lazy"
-                  />
-                </span>
-                <span class="institution-role">Realização</span>
+      <section class="partners" id="instituicoes" aria-labelledby="partners-title">
+        <div class="container">
+          <h2 id="partners-title">Instituições do projeto</h2>
+          <div class="partner-logos">
+            <article class="partner-card">
+              <div class="partner-logo">
+                <img
+                  src="assets/logo-ifg-campus-goiania.jpg"
+                  alt="Instituto Federal de Goiás — Câmpus Goiânia"
+                  width="1750"
+                  height="625"
+                />
               </div>
               <h3>Instituto Federal de Goiás</h3>
-              <p>Responsável pela idealização, desenvolvimento e articulação institucional do projeto.</p>
+              <p>Câmpus Goiânia</p>
             </article>
-
-            <article class="institution-card">
-              <div class="institution-head">
-                <span class="institution-logo">
-                  <img
-                    src="assets/ifes2_symbol.webp"
-                    alt="Símbolo do Instituto Federal do Espírito Santo"
-                    width="487"
-                    height="655"
-                    loading="lazy"
-                  />
-                </span>
-                <span class="institution-role">Apoio</span>
+            <article class="partner-card">
+              <div class="partner-logo">
+                <img
+                  src="assets/logo-ifmt-barra-do-garcas.png"
+                  alt="Instituto Federal de Mato Grosso"
+                  width="550"
+                  height="158"
+                />
               </div>
-              <h3>IFES — Campus Laranja da Terra</h3>
-              <p>Apoia a rede de colaboração, validação e aproximação com diferentes contextos educacionais.</p>
+              <h3>Instituto Federal de Mato Grosso</h3>
+              <p>Campus Barra do Garças</p>
             </article>
-
-            <article class="institution-card">
-              <div class="institution-head">
-                <span class="institution-logo">
-                  <img
-                    src="assets/ifmt2_symbol.webp"
-                    alt="Símbolo do Instituto Federal de Mato Grosso"
-                    width="113"
-                    height="149"
-                    loading="lazy"
-                  />
-                </span>
-                <span class="institution-role">Apoio</span>
+            <article class="partner-card">
+              <div class="partner-logo">
+                <img
+                  src="assets/logo-ifes-campus-laranja-da-terra.png"
+                  alt="Instituto Federal do Espírito Santo — Campus Laranja da Terra"
+                  width="2000"
+                  height="700"
+                />
               </div>
-              <h3>IFMT — Campus Barra do Garças</h3>
-              <p>Fortalece a dimensão multicampi e a construção coletiva da solução para a educação especial inclusiva.</p>
+              <h3>Instituto Federal do Espírito Santo</h3>
+              <p>Campus Laranja da Terra</p>
             </article>
-
-            <article class="institution-card school-institution">
-              <div class="institution-head">
-                <span class="institution-logo institution-logo-wide">
-                  <img
-                    src="assets/cepi-ismael.webp"
-                    alt="Logomarca do CEPI Ismael Silva de Jesus"
-                    width="1286"
-                    height="791"
-                    loading="lazy"
-                  />
-                </span>
-                <span class="institution-role">Escola parceira</span>
+            <article class="partner-card partner-school">
+              <div class="partner-logo">
+                <img src="assets/cepi-ismael.webp" alt="CEPI Ismael Silva de Jesus" width="1286" height="791" />
               </div>
               <h3>CEPI Ismael Silva de Jesus</h3>
-              <p>Escola parceira na articulação, validação em contexto real e acompanhamento das atividades do projeto-piloto.</p>
+              <p>Escola parceira · Goiânia</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section team-section" id="equipe" aria-labelledby="equipe-title">
-        <div class="section-inner">
-          <div class="section-heading wide">
-            <p class="section-kicker">Equipe</p>
-            <h2 id="equipe-title">Tecnologia, inclusão e gestão pública trabalhando juntas.</h2>
+      <section class="features" id="recursos" aria-labelledby="features-title">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="section-label">Recursos</p>
+            <h2 id="features-title">Da elaboração do PEI ao acompanhamento em sala.</h2>
             <p>
-              A equipe combina pesquisa aplicada, inteligência artificial, educação inclusiva e articulação institucional para criar uma solução próxima da realidade das escolas.
+              Uma rotina contínua, organizada e compreensível para professores, AEE, coordenação e gestão.
             </p>
+          </div>
+
+          <article class="feature-row" id="plataforma">
+            <div class="product-visual visual-form">
+              <div class="browser-window">
+                <div class="browser-top" aria-hidden="true">
+                  <span class="browser-dots"><i></i><i></i><i></i></span>
+                  <span>prototipo-pei-inteligente.vercel.app</span>
+                </div>
+                <img
+                  src="assets/prototipo-pei-form.webp"
+                  alt="Formulário do PEI Inteligente com geração assistida de objetivos, metodologia e avaliação"
+                  width="583"
+                  height="560"
+                  loading="lazy"
+                />
+              </div>
+              <span class="visual-tag tag-top">Revisão humana</span>
+              <span class="visual-tag tag-bottom">Rascunho com IA</span>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-label">Planejamento assistido</p>
+              <h3>Crie o PEI sem começar do zero.</h3>
+              <p class="feature-intro">
+                O professor informa o contexto e recebe uma primeira proposta estruturada. Tudo pode ser editado antes de salvar.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  <span class="list-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h8l4 4v14H5V3h2Zm7 0v5h5M8 12h8M8 16h6" /></svg>
+                  </span>
+                  <div><strong>Estrutura familiar</strong><p>Objetivos, metodologia, avaliação e resultados na mesma lógica usada pela escola.</p></div>
+                </li>
+                <li>
+                  <span class="list-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2M9 9h6v6H9z" /></svg>
+                  </span>
+                  <div><strong>Sugestões contextualizadas</strong><p>A IA parte das necessidades e habilidades registradas para apoiar o planejamento.</p></div>
+                </li>
+                <li>
+                  <span class="list-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Zm-3 9 2 2 4-4" /></svg>
+                  </span>
+                  <div><strong>Validação obrigatória</strong><p>Nenhuma sugestão se torna plano sem a revisão de quem acompanha o estudante.</p></div>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="feature-row feature-row-reverse">
+            <div class="feature-copy">
+              <p class="section-label">Visão compartilhada</p>
+              <h3>Transforme registros dispersos em continuidade pedagógica.</h3>
+              <p class="feature-intro">
+                A equipe acompanha planos, vínculos, registros e demandas em um só lugar — sem perder o histórico entre semestres.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  <span class="list-icon icon-gold">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M21 20H3" /></svg>
+                  </span>
+                  <div><strong>Painel para coordenação</strong><p>Uma leitura direta do que está em andamento e do que precisa de atenção.</p></div>
+                </li>
+                <li>
+                  <span class="list-icon icon-gold">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 9h8M8 13h5M8 17h7" /></svg>
+                  </span>
+                  <div><strong>Histórico organizado</strong><p>Decisões e evidências permanecem acessíveis para reuniões, devolutivas e novos ciclos.</p></div>
+                </li>
+                <li>
+                  <span class="list-icon icon-gold">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8-1a3 3 0 1 0 0-6M2 21v-3c0-2.2 2.7-4 6-4s6 1.8 6 4v3m2-7c3.3 0 6 1.8 6 4v3" /></svg>
+                  </span>
+                  <div><strong>Trabalho em equipe</strong><p>Professor, AEE e coordenação colaboram sobre a mesma informação.</p></div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="product-visual visual-dashboard">
+              <div class="browser-window">
+                <div class="browser-top" aria-hidden="true">
+                  <span class="browser-dots"><i></i><i></i><i></i></span>
+                  <span>Visão geral da inclusão</span>
+                </div>
+                <img
+                  src="assets/prototipo-visao-geral.webp"
+                  alt="Painel geral do PEI Inteligente com alunos, professores e registros pedagógicos"
+                  width="777"
+                  height="457"
+                  loading="lazy"
+                />
+              </div>
+              <div class="floating-metric">
+                <span>Planos acompanhados</span>
+                <strong>Em um só fluxo</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-row">
+            <div class="product-visual workflow-visual" aria-label="Fluxo do PEI Inteligente em quatro etapas">
+              <div class="workflow-card">
+                <p>Jornada do estudante</p>
+                <div class="workflow-step active"><span>01</span><div><strong>Mapear</strong><small>Perfil e contexto</small></div><i>✓</i></div>
+                <div class="workflow-line"></div>
+                <div class="workflow-step active"><span>02</span><div><strong>Planejar</strong><small>PEI e adaptações</small></div><i>✓</i></div>
+                <div class="workflow-line"></div>
+                <div class="workflow-step"><span>03</span><div><strong>Aplicar</strong><small>Rotina pedagógica</small></div><i>→</i></div>
+                <div class="workflow-line"></div>
+                <div class="workflow-step muted"><span>04</span><div><strong>Acompanhar</strong><small>Evidências e evolução</small></div><i>•</i></div>
+              </div>
+              <div class="workflow-note"><span>Decisão humana</span><strong>em todas as etapas</strong></div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-label">Uso responsável</p>
+              <h3>Tecnologia que apoia sem substituir o olhar pedagógico.</h3>
+              <p class="feature-intro">
+                O produto foi pensado para reduzir tarefas repetitivas e liberar tempo para o que realmente importa: conhecer, ensinar e acompanhar cada estudante.
+              </p>
+              <ul class="feature-list">
+                <li>
+                  <span class="list-icon icon-blue">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5M12 7v5l3 2" /></svg>
+                  </span>
+                  <div><strong>Rastreabilidade</strong><p>A equipe entende o que mudou, quando mudou e por que uma decisão foi tomada.</p></div>
+                </li>
+                <li>
+                  <span class="list-icon icon-blue">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l4-3v16M13 21V5l6 3v13" /></svg>
+                  </span>
+                  <div><strong>Pronto para redes públicas</strong><p>Uma base comum para apoiar escolas, orientar formação e ampliar boas práticas.</p></div>
+                </li>
+                <li>
+                  <span class="list-icon icon-blue">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5ZM6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5" /></svg>
+                  </span>
+                  <div><strong>Formação continuada</strong><p>A implantação pode caminhar junto com orientação para o uso responsável da ferramenta.</p></div>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="impact-band" aria-label="Princípios do PEI Inteligente">
+        <div class="container impact-grid">
+          <article><span>01</span><strong>Menos retrabalho</strong><p>Histórico reaproveitado e informações reunidas.</p></article>
+          <article><span>02</span><strong>Mais intenção pedagógica</strong><p>Sugestões editáveis, justificadas e contextualizadas.</p></article>
+          <article><span>03</span><strong>Decisão sempre humana</strong><p>O profissional revisa, ajusta e aprova cada plano.</p></article>
+        </div>
+      </section>
+
+      <section class="team-section" id="equipe" aria-labelledby="team-title">
+        <div class="container">
+          <div class="section-heading centered team-heading">
+            <p class="section-label">Equipe</p>
+            <h2 id="team-title">Pesquisa, educação e tecnologia no mesmo projeto.</h2>
+            <p>
+              Um time multidisciplinar ligado à educação pública, à inclusão e ao desenvolvimento responsável de inteligência artificial.
+            </p>
+            <button class="photo-editor-toggle" type="button" data-photo-editor-toggle>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M4 17h16M17 4v6M9 14v6" /></svg>
+              Ajustar enquadramento das fotos
+            </button>
           </div>
 
           <div class="team-grid">
-            <article class="person-card">
-              <span class="person-avatar" data-initials="TL" aria-hidden="true">
-                <img
-                  class="photo-ajustavel"
-                  style="--x: 50%; --y: 35%; --zoom: 1.05;"
-                  src="assets/tatiane2.webp?v=3"
-                  alt=""
-                  width="357"
-                  height="395"
-                  loading="lazy"
-                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
-                />
-              </span>
-              <div class="person-card-content">
-                <h3>Tatiane Lopes</h3>
-                <span class="role-label">Educação inclusiva</span>
-                <p>Mestre em Educação pela UFOP, especialista em AEE e professora efetiva no IFMT.</p>
+            <article class="person-card" data-photo-card="tatiane">
+              <div class="photo-frame" data-photo-frame data-photo-id="tatiane" data-default-x="50" data-default-y="35" data-default-zoom="1.05" tabindex="0">
+                <img data-photo src="assets/tatiane2.webp" alt="Tatiane Lopes" width="357" height="395" loading="lazy" draggable="false" />
+                <div class="photo-controls" aria-label="Controles da foto de Tatiane Lopes">
+                  <button type="button" data-zoom-out aria-label="Diminuir zoom da foto de Tatiane Lopes">−</button>
+                  <output data-zoom-value>105%</output>
+                  <button type="button" data-zoom-in aria-label="Aumentar zoom da foto de Tatiane Lopes">+</button>
+                  <button class="photo-reset" type="button" data-photo-reset>Restaurar</button>
+                </div>
               </div>
+              <div class="person-info"><p>Educação inclusiva</p><h3>Tatiane Lopes</h3><span>Mestre em Educação pela UFOP, especialista em AEE e professora do IFMT.</span></div>
             </article>
+            <article class="person-card" data-photo-card="ricardo">
+              <div class="photo-frame" data-photo-frame data-photo-id="ricardo" data-default-x="50" data-default-y="35" data-default-zoom="1.08" tabindex="0">
+                <img data-photo src="assets/ricardo.webp" alt="Ricardo da Silva Santos" width="336" height="448" loading="lazy" draggable="false" />
+                <div class="photo-controls" aria-label="Controles da foto de Ricardo da Silva Santos">
+                  <button type="button" data-zoom-out aria-label="Diminuir zoom da foto de Ricardo da Silva Santos">−</button>
+                  <output data-zoom-value>108%</output>
+                  <button type="button" data-zoom-in aria-label="Aumentar zoom da foto de Ricardo da Silva Santos">+</button>
+                  <button class="photo-reset" type="button" data-photo-reset>Restaurar</button>
+                </div>
+              </div>
+              <div class="person-info"><p>Matemática aplicada e IA</p><h3>Ricardo da Silva Santos</h3><span>Doutorando na UNICAMP e professor do IFG — Câmpus Goiânia.</span></div>
+            </article>
+            <article class="person-card" data-photo-card="lorena">
+              <div class="photo-frame" data-photo-frame data-photo-id="lorena" data-default-x="50" data-default-y="42" data-default-zoom="1.1" tabindex="0">
+                <img data-photo src="assets/lorena.webp" alt="Lorena Rosa" width="200" height="200" loading="lazy" draggable="false" />
+                <div class="photo-controls" aria-label="Controles da foto de Lorena Rosa">
+                  <button type="button" data-zoom-out aria-label="Diminuir zoom da foto de Lorena Rosa">−</button>
+                  <output data-zoom-value>110%</output>
+                  <button type="button" data-zoom-in aria-label="Aumentar zoom da foto de Lorena Rosa">+</button>
+                  <button class="photo-reset" type="button" data-photo-reset>Restaurar</button>
+                </div>
+              </div>
+              <div class="person-info"><p>Articulação institucional</p><h3>Lorena Rosa</h3><span>Doutora em Ciências da Saúde e Pró-reitora de Pesquisa e Pós-Graduação do IFG.</span></div>
+            </article>
+            <article class="person-card" data-photo-card="uender">
+              <div class="photo-frame" data-photo-frame data-photo-id="uender" data-default-x="50" data-default-y="34" data-default-zoom="1.08" tabindex="0">
+                <img data-photo src="assets/uender.webp" alt="Uender Barbosa" width="225" height="225" loading="lazy" draggable="false" />
+                <div class="photo-controls" aria-label="Controles da foto de Uender Barbosa">
+                  <button type="button" data-zoom-out aria-label="Diminuir zoom da foto de Uender Barbosa">−</button>
+                  <output data-zoom-value>108%</output>
+                  <button type="button" data-zoom-in aria-label="Aumentar zoom da foto de Uender Barbosa">+</button>
+                  <button class="photo-reset" type="button" data-photo-reset>Restaurar</button>
+                </div>
+              </div>
+              <div class="person-info"><p>IA e métodos computacionais</p><h3>Uender Barbosa</h3><span>Doutor em Engenharia Elétrica e de Computação e pesquisador em IA.</span></div>
+            </article>
+            <article class="person-card" data-photo-card="daniel">
+              <div class="photo-frame" data-photo-frame data-photo-id="daniel" data-default-x="68" data-default-y="18" data-default-zoom="1" tabindex="0">
+                <img data-photo src="assets/daniel.webp" alt="Daniel Henrique Valadão Araújo" width="400" height="400" loading="lazy" draggable="false" />
+                <div class="photo-controls" aria-label="Controles da foto de Daniel Henrique Valadão Araújo">
+                  <button type="button" data-zoom-out aria-label="Diminuir zoom da foto de Daniel Henrique Valadão Araújo">−</button>
+                  <output data-zoom-value>100%</output>
+                  <button type="button" data-zoom-in aria-label="Aumentar zoom da foto de Daniel Henrique Valadão Araújo">+</button>
+                  <button class="photo-reset" type="button" data-photo-reset>Restaurar</button>
+                </div>
+              </div>
+              <div class="person-info"><p>Articulação escolar</p><h3>Daniel Henrique Valadão Araújo</h3><span>Pedagogo e profissional de apoio no CEPI Ismael Silva de Jesus.</span></div>
+            </article>
+            <article class="person-card" data-photo-card="marcio">
+              <div class="photo-frame" data-photo-frame data-photo-id="marcio" data-default-x="47" data-default-y="28" data-default-zoom="1.1" tabindex="0">
+                <img data-photo src="assets/marcio.webp" alt="Márcio Dias de Lima" width="720" height="480" loading="lazy" draggable="false" />
+                <div class="photo-controls" aria-label="Controles da foto de Márcio Dias de Lima">
+                  <button type="button" data-zoom-out aria-label="Diminuir zoom da foto de Márcio Dias de Lima">−</button>
+                  <output data-zoom-value>110%</output>
+                  <button type="button" data-zoom-in aria-label="Aumentar zoom da foto de Márcio Dias de Lima">+</button>
+                  <button class="photo-reset" type="button" data-photo-reset>Restaurar</button>
+                </div>
+              </div>
+              <div class="person-info"><p>Computação aplicada</p><h3>Márcio Dias de Lima</h3><span>Doutor em Ciências da Computação pela UFG e professor do IFG.</span></div>
+            </article>
+          </div>
 
-            <article class="person-card">
-              <span class="person-avatar" data-initials="RS" aria-hidden="true">
-                <img
-                  class="photo-ajustavel"
-                  style="--x: 50%; --y: 35%; --zoom: 1.08;"
-                  src="assets/ricardo.webp?v=3"
-                  alt=""
-                  width="336"
-                  height="448"
-                  loading="lazy"
-                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
-                />
-              </span>
-              <div class="person-card-content">
-                <h3>Ricardo da Silva Santos</h3>
-                <span class="role-label">Matemática aplicada e IA</span>
-                <p>Doutorando em Matemática Aplicada pela UNICAMP e professor do IFG – Campus Goiânia.</p>
-              </div>
-            </article>
+          <div class="photo-editor-bar" data-photo-editor-bar hidden>
+            <div>
+              <strong>Modo de ajuste ativo</strong>
+              <span>Arraste a foto e use +/−. Os ajustes são salvos automaticamente neste navegador.</span>
+            </div>
+            <button type="button" data-photo-reset-all>Restaurar todas</button>
+            <button class="editor-export" type="button" data-photo-export>Baixar configuração para o site</button>
+            <button class="editor-done" type="button" data-photo-editor-close>Concluir</button>
+          </div>
+          <p class="photo-editor-toast" data-photo-editor-toast role="status" aria-live="polite" hidden></p>
+        </div>
+      </section>
 
-            <article class="person-card">
-              <span class="person-avatar" data-initials="LR" aria-hidden="true">
-                <img
-                  class="photo-ajustavel"
-                  style="--x: 50%; --y: 42%; --zoom: 1.1;"
-                  src="assets/lorena.webp?v=3"
-                  alt=""
-                  width="200"
-                  height="200"
-                  loading="lazy"
-                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
-                />
-              </span>
-              <div class="person-card-content">
-                <h3>Lorena Rosa</h3>
-                <span class="role-label">Articulação institucional</span>
-                <p>Doutora em Ciências da Saúde pela UFG e Pró-reitora de Pesquisa e Pós-Graduação do IFG.</p>
-              </div>
-            </article>
+      <section class="faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-layout">
+          <div class="faq-intro">
+            <p class="section-label">Perguntas frequentes</p>
+            <h2 id="faq-title">O que você precisa saber antes de testar.</h2>
+            <p>Quer conversar sobre um piloto, uma parceria ou o uso na sua rede?</p>
+            <a
+              href="https://wa.me/5562985499620?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20PEI%20Inteligente."
+              target="_blank"
+              rel="noopener noreferrer"
+            >Fale com a nossa equipe <span aria-hidden="true">↗</span></a>
+          </div>
 
-            <article class="person-card">
-              <span class="person-avatar" data-initials="UB" aria-hidden="true">
-                <img
-                  class="photo-ajustavel"
-                  style="--x: 50%; --y: 34%; --zoom: 1.08;"
-                  src="assets/uender.webp?v=3"
-                  alt=""
-                  width="225"
-                  height="225"
-                  loading="lazy"
-                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
-                />
-              </span>
-              <div class="person-card-content">
-                <h3>Uender Barbosa</h3>
-                <span class="role-label">IA e métodos computacionais</span>
-                <p>Doutor em Engenharia Elétrica e de Computação pela UFG e pesquisador em inteligência artificial.</p>
-              </div>
-            </article>
-
-            <article class="person-card">
-              <span class="person-avatar" data-initials="DV" aria-hidden="true">
-                <img
-                  class="photo-ajustavel"
-                  style="--x: 200%; --y: -30%; --zoom: 3;"
-                  src="assets/daniel.webp?v=3"
-                  alt=""
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
-                />
-              </span>
-              <div class="person-card-content">
-                <h3>Daniel Henrique Valadão Araújo</h3>
-                <span class="role-label">Articulação escolar</span>
-                <p>Pedagogo e profissional de apoio no CEPI Ismael Silva de Jesus, com atuação na articulação e no acompanhamento do projeto-piloto.</p>
-              </div>
-            </article>
-
-            <article class="person-card">
-              <span class="person-avatar" data-initials="ML" aria-hidden="true">
-                <img
-                  class="photo-ajustavel"
-                  style="--x: 47%; --y: 28%; --zoom: 1.1;"
-                  src="assets/marcio.webp?v=3"
-                  alt=""
-                  width="720"
-                  height="480"
-                  loading="lazy"
-                  onerror="this.hidden = true; this.parentElement.classList.add('is-fallback');"
-                />
-              </span>
-              <div class="person-card-content">
-                <h3>Márcio Dias de Lima</h3>
-                <span class="role-label">Computação aplicada</span>
-                <p>Doutor em Ciências da Computação pela UFG e professor do IFG.</p>
-              </div>
-            </article>
+          <div class="faq-list">
+            <details>
+              <summary>O PEI Inteligente substitui o professor ou o AEE?<span></span></summary>
+              <p>Não. A plataforma prepara sugestões e organiza informações. A análise, a edição e a aprovação continuam sendo responsabilidade da equipe que acompanha o estudante.</p>
+            </details>
+            <details>
+              <summary>Já existe uma versão que pode ser testada?<span></span></summary>
+              <p>Sim. Há um protótipo público com os módulos principais, disponível pelo botão “Testar o protótipo” desta página.</p>
+            </details>
+            <details>
+              <summary>A ferramenta serve apenas para uma escola?<span></span></summary>
+              <p>O projeto parte da realidade escolar, mas foi concebido para também apoiar institutos, secretarias e redes públicas com visão agregada e continuidade entre unidades.</p>
+            </details>
+            <details>
+              <summary>Como a inteligência artificial participa do processo?<span></span></summary>
+              <p>A IA gera rascunhos a partir do contexto informado pela equipe. Ela não salva nem valida decisões pedagógicas de forma autônoma.</p>
+            </details>
+            <details>
+              <summary>É possível propor um projeto-piloto?<span></span></summary>
+              <p>Sim. A equipe está aberta a parcerias para diagnóstico, piloto orientado, avaliação e construção de um caminho de escala responsável.</p>
+            </details>
           </div>
         </div>
       </section>
 
-      <section class="section pilot-section" aria-labelledby="piloto-title">
-        <div class="section-inner pilot-layout">
-          <div>
-            <p class="section-kicker">Parcerias e pilotos</p>
-            <h2 id="piloto-title">Um caminho objetivo para validar com escolas e redes.</h2>
-          </div>
-          <div class="pilot-steps">
-            <article>
-              <span>01</span>
-              <h3>Diagnóstico</h3>
-              <p>Entender fluxo atual de PEI, AEE, registros e necessidades da rede.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Piloto orientado</h3>
-              <p>Aplicar com escolas selecionadas, acompanhando uso, dúvidas e ajustes.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Escala responsável</h3>
-              <p>Consolidar formação, indicadores e integração com a política institucional.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-section" id="contato" aria-labelledby="contato-title">
-        <div class="contact-inner">
-          <p class="section-kicker">Vamos conversar</p>
-          <h2 id="contato-title">Leve o PEI Inteligente para uma rede que precisa de inclusão com método e escala.</h2>
+      <section class="cta-section grid-background" id="contato" aria-labelledby="cta-title">
+        <div class="cta-inner">
+          <p class="section-label">Parcerias e pilotos</p>
+          <h2 id="cta-title">Leve a inclusão do documento para a rotina.</h2>
           <p>
-            A equipe está aberta a diálogo com instituições, reitorias, secretarias de educação e parceiros públicos interessados em pilotos, validação e implantação.
+            Conheça o protótipo ou converse com a equipe sobre uma aplicação acompanhada na sua escola, instituição ou rede.
           </p>
-          <a
-            class="button button-light"
-            href="https://wa.me/5562985499620?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20uma%20parceria%20com%20o%20PEI%20Inteligente."
-            target="_blank"
-            rel="noopener"
-          >
-            Chamar pelo WhatsApp
-            <span aria-hidden="true">&rarr;</span>
-          </a>
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="https://prototipo-pei-inteligente.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Testar o protótipo <span aria-hidden="true">↗</span></a>
+            <a
+              class="button button-dark"
+              href="https://wa.me/5562985499620?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20uma%20parceria%20com%20o%20PEI%20Inteligente."
+              target="_blank"
+              rel="noopener noreferrer"
+            >Falar no WhatsApp</a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="footer-inner">
+      <div class="container footer-grid">
         <div class="footer-brand">
-          <img src="assets/pei-inteligente-logo.svg" alt="" width="36" height="36" />
-          <div>
-            <strong>PEI Inteligente</strong>
-            <p>Projeto de pesquisa aplicada em educação especial inclusiva.</p>
-          </div>
+          <a class="brand" href="#inicio">
+            <img src="assets/pei-inteligente-logo.svg" alt="" width="46" height="46" />
+            <span>PEI <strong>Inteligente</strong></span>
+          </a>
+          <p>Educação inclusiva com método, continuidade e decisão humana.</p>
         </div>
-        <div class="footer-cols">
-          <div>
-            <h4>Instituições</h4>
-            <p>Realização: Instituto Federal de Goiás</p>
-            <p>Apoio: IFMT — Campus Barra do Garças</p>
-            <p>Apoio: IFES — Campus Laranja da Terra</p>
-            <p>Escola parceira: CEPI Ismael Silva de Jesus</p>
-          </div>
-          <div>
-            <h4>Projeto</h4>
-            <p><a href="https://prototipo-pei-inteligente.vercel.app/" target="_blank" rel="noopener noreferrer">Protótipo público</a></p>
-            <p>Proposta submetida à FAPEG — Chamada Pública nº 13/2026</p>
-            <p>Referências legais: Decreto nº 12.773/2025 · Portaria MEC nº 421/2026</p>
-          </div>
+        <div>
+          <h3>Navegação</h3>
+          <a href="#recursos">Recursos</a>
+          <a href="#plataforma">Plataforma</a>
+          <a href="#equipe">Equipe</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <h3>Projeto</h3>
+          <a href="https://prototipo-pei-inteligente.vercel.app/" target="_blank" rel="noopener noreferrer">Protótipo público ↗</a>
+          <span>Realização: Instituto Federal de Goiás</span>
+          <span>Proposta à Chamada FAPEG nº 13/2026</span>
         </div>
       </div>
-      <div class="footer-base">
-        <p>&copy; 2026 PEI Inteligente · Instituto Federal de Goiás</p>
-        <a href="#inicio">Voltar ao topo</a>
+      <div class="container footer-base">
+        <p>© <span data-year>2026</span> PEI Inteligente. Todos os direitos reservados.</p>
+        <a href="#inicio">Voltar ao topo ↑</a>
       </div>
     </footer>
 
+    <script src="photo-editor.js" defer></script>
     <script>
       (function () {
         var toggle = document.querySelector(".menu-toggle");
-        var nav = document.getElementById("mobile-nav");
-        var header = document.querySelector(".site-header");
-        if (!toggle || !nav || !header) return;
+        var mobileNav = document.getElementById("mobile-nav");
+        var header = document.querySelector("[data-header]");
+        var year = document.querySelector("[data-year]");
+
+        if (year) year.textContent = new Date().getFullYear();
 
         function closeMenu() {
-          nav.hidden = true;
+          if (!toggle || !mobileNav) return;
           toggle.setAttribute("aria-expanded", "false");
           toggle.setAttribute("aria-label", "Abrir menu");
+          mobileNav.hidden = true;
         }
 
-        toggle.addEventListener("click", function () {
-          var isOpen = toggle.getAttribute("aria-expanded") === "true";
-          if (isOpen) {
-            closeMenu();
-          } else {
-            nav.hidden = false;
-            toggle.setAttribute("aria-expanded", "true");
-            toggle.setAttribute("aria-label", "Fechar menu");
-          }
-        });
+        if (toggle && mobileNav) {
+          toggle.addEventListener("click", function () {
+            var open = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", String(!open));
+            toggle.setAttribute("aria-label", open ? "Abrir menu" : "Fechar menu");
+            mobileNav.hidden = open;
+          });
 
-        nav.querySelectorAll("a").forEach(function (link) {
-          link.addEventListener("click", closeMenu);
-        });
-
-        document.addEventListener("keydown", function (event) {
-          if (event.key === "Escape") closeMenu();
-        });
-
-        function updateHeader() {
-          header.classList.toggle("is-scrolled", window.scrollY > 12);
+          mobileNav.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", closeMenu);
+          });
         }
 
-        updateHeader();
-        window.addEventListener("scroll", updateHeader, { passive: true });
+        window.addEventListener("scroll", function () {
+          if (header) header.classList.toggle("is-scrolled", window.scrollY > 24);
+        }, { passive: true });
       })();
     </script>
   </body>
