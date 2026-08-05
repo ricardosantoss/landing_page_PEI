@@ -902,40 +902,6 @@ h3 {
   max-width: 720px;
 }
 
-.photo-editor-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  min-height: 46px;
-  margin-top: 24px;
-  padding: 0 18px;
-  border: 1px solid rgba(8, 118, 111, 0.24);
-  border-radius: 999px;
-  background: #fff;
-  color: var(--brand-dark);
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
-}
-
-.photo-editor-toggle:hover,
-.photo-editor-toggle[aria-pressed="true"] {
-  transform: translateY(-2px);
-  background: var(--brand);
-  color: #fff;
-}
-
-.photo-editor-toggle svg {
-  width: 19px;
-  height: 19px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
-}
-
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -967,11 +933,6 @@ h3 {
   isolation: isolate;
 }
 
-.photo-frame:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: -3px;
-}
-
 .photo-frame::before {
   position: absolute;
   z-index: 0;
@@ -1000,91 +961,6 @@ h3 {
   user-select: none;
 }
 
-.photo-controls {
-  position: absolute;
-  z-index: 3;
-  right: 10px;
-  bottom: 10px;
-  left: 10px;
-  display: grid;
-  grid-template-columns: 38px 54px 38px 1fr;
-  align-items: center;
-  gap: 6px;
-  padding: 7px;
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 14px;
-  background: rgba(17, 28, 25, 0.88);
-  color: #fff;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(8px);
-  transition: opacity 160ms ease, transform 160ms ease;
-  backdrop-filter: blur(12px);
-}
-
-.photo-controls button {
-  display: grid;
-  place-items: center;
-  min-height: 38px;
-  border: 0;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.13);
-  color: #fff;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.photo-controls button:hover,
-.photo-controls button:focus-visible {
-  background: var(--gold);
-  color: var(--ink);
-}
-
-.photo-controls output {
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.photo-controls .photo-reset {
-  padding-inline: 10px;
-  font-size: 0.76rem;
-}
-
-.photo-editing .person-card:hover {
-  transform: none;
-}
-
-.photo-editing .photo-frame {
-  cursor: grab;
-  touch-action: none;
-}
-
-.photo-editing .photo-frame::after {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  border: 2px dashed rgba(255, 255, 255, 0.76);
-  border-radius: inherit;
-  content: "";
-  pointer-events: none;
-}
-
-.photo-editing .photo-frame.is-dragging {
-  cursor: grabbing;
-}
-
-.photo-editing .photo-frame.is-dragging > img,
-.photo-editing .photo-frame > img {
-  transition: none;
-}
-
-.photo-editing .photo-controls {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
 .person-info {
   min-height: 190px;
   padding: 23px 24px 25px;
@@ -1111,84 +987,6 @@ h3 {
   color: var(--muted);
   font-size: 0.91rem;
   line-height: 1.46;
-}
-
-.photo-editor-bar {
-  position: fixed;
-  z-index: 210;
-  right: 24px;
-  bottom: 22px;
-  left: 24px;
-  display: grid;
-  grid-template-columns: minmax(280px, 1fr) auto auto auto;
-  align-items: center;
-  gap: 10px;
-  width: min(1160px, calc(100% - 48px));
-  margin-inline: auto;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 18px;
-  background: rgba(15, 41, 38, 0.96);
-  color: #fff;
-  box-shadow: 0 24px 70px rgba(10, 25, 22, 0.32);
-  backdrop-filter: blur(18px);
-}
-
-.photo-editor-bar strong,
-.photo-editor-bar span {
-  display: block;
-}
-
-.photo-editor-bar strong {
-  font-family: var(--font-display);
-  font-size: 0.92rem;
-}
-
-.photo-editor-bar span {
-  margin-top: 2px;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 0.78rem;
-}
-
-.photo-editor-bar button {
-  min-height: 42px;
-  padding: 0 14px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 11px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.photo-editor-bar button:hover,
-.photo-editor-bar button:focus-visible {
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.photo-editor-bar .editor-export {
-  border-color: rgba(242, 200, 75, 0.55);
-  color: #ffe795;
-}
-
-.photo-editor-bar .editor-done {
-  border-color: var(--brand);
-  background: var(--brand);
-}
-
-.photo-editor-toast {
-  position: fixed;
-  z-index: 220;
-  right: 28px;
-  bottom: 112px;
-  max-width: min(390px, calc(100% - 40px));
-  padding: 12px 16px;
-  border-radius: 12px;
-  background: var(--ink);
-  color: #fff;
-  box-shadow: var(--shadow-soft);
-  font-size: 0.86rem;
-  font-weight: 700;
 }
 
 .faq-section {
@@ -1597,42 +1395,6 @@ h3 {
     font-size: 0.84rem;
   }
 
-  .photo-controls {
-    right: 6px;
-    bottom: 6px;
-    left: 6px;
-    grid-template-columns: 34px 1fr 34px;
-    gap: 4px;
-    padding: 5px;
-  }
-
-  .photo-controls .photo-reset {
-    grid-column: 1 / -1;
-    min-height: 32px;
-  }
-
-  .photo-editor-bar {
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: calc(100% - 20px);
-    padding: 10px;
-  }
-
-  .photo-editor-bar > div {
-    grid-column: 1 / -1;
-  }
-
-  .photo-editor-bar .editor-export {
-    grid-column: 1 / -1;
-  }
-
-  .photo-editor-toast {
-    right: 14px;
-    bottom: 184px;
-  }
-
   .faq-intro h2 {
     font-size: 2.5rem;
   }
@@ -1699,11 +1461,4 @@ h3 {
     display: none;
   }
 
-  .photo-controls {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .photo-controls output {
-    font-size: 0.68rem;
-  }
 }
